@@ -631,3 +631,220 @@ export function addEnumsToSchemaAdvanced(
 
   return newSchema;
 }
+
+// ! attributes
+
+/**
+ * Recursively removes all 'required' arrays from the schema.
+ * @param schema The current schema node.
+ */
+function removeAllRequired(
+  schema: JSONSchema7 | boolean
+): JSONSchema7 | boolean {
+  if (typeof schema === "boolean") {
+    // If the schema is a boolean, return it as is.
+    return schema;
+  }
+
+  // Clone the schema to avoid mutating the original.
+  const newSchema: JSONSchema7 = { ...schema };
+
+  // Remove the 'required' property if it exists.
+  if (newSchema.required) {
+    delete newSchema.required;
+  }
+
+  // Recursively process properties.
+  if (newSchema.properties) {
+    const newProperties: { [key: string]: JSONSchema7Definition } = {};
+    for (const [key, propSchema] of Object.entries(newSchema.properties)) {
+      newProperties[key] = removeAllRequired(propSchema);
+    }
+    newSchema.properties = newProperties;
+  }
+
+  // Recursively process 'patternProperties'.
+  if (newSchema.patternProperties) {
+    const newPatternProperties: { [key: string]: JSONSchema7Definition } = {};
+    for (const [key, propSchema] of Object.entries(
+      newSchema.patternProperties
+    )) {
+      newPatternProperties[key] = removeAllRequired(propSchema);
+    }
+    newSchema.patternProperties = newPatternProperties;
+  }
+
+  // Recursively process 'additionalProperties'.
+  if (
+    newSchema.additionalProperties &&
+    typeof newSchema.additionalProperties === "object"
+  ) {
+    newSchema.additionalProperties = removeAllRequired(
+      newSchema.additionalProperties
+    );
+  }
+
+  // Recursively process 'items'.
+  if (newSchema.items) {
+    if (Array.isArray(newSchema.items)) {
+      newSchema.items = newSchema.items.map((item) => removeAllRequired(item));
+    } else {
+      newSchema.items = removeAllRequired(newSchema.items);
+    }
+  }
+
+  // Recursively process 'not'.
+  if (newSchema.not) {
+    newSchema.not = removeAllRequired(newSchema.not);
+  }
+
+  // Recursively process 'dependencies'.
+  if (newSchema.dependencies) {
+    const newDependencies: { [key: string]: JSONSchema7Definition } = {};
+    for (const [key, dep] of Object.entries(newSchema.dependencies)) {
+      if (typeof dep === "object" && !Array.isArray(dep)) {
+        newDependencies[key] = removeAllRequired(dep);
+      } else {
+        // If the dependency is an array of strings, keep it as is.
+        // @ts-ignore
+        newDependencies[key] = dep;
+      }
+    }
+    newSchema.dependencies = newDependencies;
+  }
+
+  return newSchema;
+}
+
+/**
+ * Traverses the schema based on path segments and sets properties as required.
+ * Automatically navigates into 'items' if a segment is an array.
+ * @param schema The current schema node.
+ * @param pathSegments Array of path segments.
+ */
+function setRequiredPath(schema: JSONSchema7, pathSegments: string[]): void {
+  let currentSchema: JSONSchema7 | undefined = schema;
+
+  for (const segment of pathSegments) {
+    if (!currentSchema) {
+      // Path does not exist in the schema.
+      return;
+    }
+
+    if (currentSchema.type !== "object" || !currentSchema.properties) {
+      // Current schema is not an object or has no properties.
+      return;
+    }
+
+    const propertySchema = currentSchema.properties[segment];
+    if (!propertySchema) {
+      // Property does not exist.
+      return;
+    }
+
+    // Ensure 'required' array exists.
+    if (!currentSchema.required) {
+      currentSchema.required = [];
+    }
+
+    // Add the current segment to 'required' if not already present.
+    if (!currentSchema.required.includes(segment)) {
+      currentSchema.required.push(segment);
+    }
+
+    // Determine the next schema node.
+    // @ts-ignore
+    if (propertySchema.type === "object") {
+      currentSchema = propertySchema as JSONSchema7;
+      // @ts-ignore
+    } else if (propertySchema.type === "array") {
+      // @ts-ignore
+      if (propertySchema.items && typeof propertySchema.items !== "boolean") {
+        // @ts-ignore
+        currentSchema = propertySchema.items as JSONSchema7;
+      } else {
+        // 'items' is boolean or undefined; cannot traverse further.
+        return;
+      }
+    } else {
+      // Reached the end of the path.
+      currentSchema = undefined;
+    }
+  }
+}
+
+/**
+ * Sets only the specified paths as required in the JSON Schema.
+ * All existing 'required' arrays are removed before applying the new required paths.
+ * Automatically handles array segments without explicit notation.
+ * @param schema The original JSONSchema7 object.
+ * @param paths An array of dot-separated path strings.
+ * @returns A new JSONSchema7 object with updated required properties.
+ */
+export function setOnlyRequiredPaths(
+  schema: JSONSchema7,
+  paths: string[]
+): JSONSchema7 {
+  // Step 1: Deep clone the schema to avoid mutating the original.
+  const clonedSchema = deepCloneSchema(schema);
+
+  // Step 2: Remove all existing 'required' arrays.
+  const schemaWithoutRequired = removeAllRequired(clonedSchema) as JSONSchema7;
+
+  // Step 3: Iterate over each path and set it as required.
+  paths.forEach((path) => {
+    const pathSegments = splitPath(path);
+    if (pathSegments.length === 0) {
+      console.warn(`Warning: Empty path provided.`);
+      return;
+    }
+
+    setRequiredPath(schemaWithoutRequired, pathSegments);
+  });
+
+  return schemaWithoutRequired;
+}
+
+/**
+ * Sets only the specified paths as required in the JSON Schema.
+ * All existing 'required' arrays are removed before applying the new required paths.
+ * Automatically handles array segments without explicit notation.
+ * Collects warnings for non-existent paths.
+ * @param schema The original JSONSchema7 object.
+ * @param paths An array of dot-separated path strings.
+ * @returns An object containing the updated schema and an array of warnings.
+ */
+export function setOnlyRequiredPathsWithWarnings(
+  schema: JSONSchema7,
+  paths: string[]
+): { updatedSchema: JSONSchema7; warnings: string[] } {
+  // Step 1: Deep clone the schema to avoid mutating the original.
+  const clonedSchema = deepCloneSchema(schema);
+
+  // Step 2: Remove all existing 'required' arrays.
+  const schemaWithoutRequired = removeAllRequired(clonedSchema) as JSONSchema7;
+
+  const warnings: string[] = [];
+
+  // Step 3: Iterate over each path and set it as required.
+  paths.forEach((path) => {
+    const pathSegments = splitPath(path);
+    if (pathSegments.length === 0) {
+      warnings.push(`Warning: Empty path provided.`);
+      return;
+    }
+
+    const previousRequired = JSON.stringify(schemaWithoutRequired.required);
+    setRequiredPath(schemaWithoutRequired, pathSegments);
+    const currentRequired = JSON.stringify(schemaWithoutRequired.required);
+
+    // Simple check to see if 'required' array has been modified.
+    if (previousRequired === currentRequired) {
+      warnings.push(
+        `Warning: Path "${path}" not found or invalid in the schema.`
+      );
+    }
+  });
+
+  return { updatedSchema: schemaWithoutRequired, warnings };
+}

@@ -6,9 +6,11 @@ import {
   addEnumsToSchemaAdvanced,
   removeEnumSchemas,
   resolveAllOf,
+  setOnlyRequiredPathsWithWarnings,
 } from "./schemaUtils";
 import { enumsFromObj } from "./enumUtils";
 import { JSONSchema7 } from "json-schema";
+import { ConvertAttributeFromBuildToTable } from "./attrUtils";
 async function dereferenceSchema(schema: any) {
   try {
     const dereferencedSchema = await RefParser.dereference(schema);
@@ -42,10 +44,17 @@ const run = async () => {
     targetEnum
   );
 
+  const attri = data["x-attributes"];
+  const extractedAttr = ConvertAttributeFromBuildToTable(attri);
+  const requiredSchema = setOnlyRequiredPathsWithWarnings(
+    newEnumsSchema,
+    extractedAttr[targetApi]
+  );
   const generatedOutput = {
     [targetApi]: existingSchema,
-    ["new"]: newEnumsSchema,
-    enums: targetEnum,
+    new: requiredSchema,
+    // enums: targetEnum,
+    attributes: extractedAttr[targetApi],
   };
 
   writeFileSync("./build.json", JSON.stringify(generatedOutput, null, 2));
