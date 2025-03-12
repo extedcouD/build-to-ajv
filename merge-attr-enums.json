@@ -1,0 +1,6018 @@
+{
+  "_TESTS_": {
+    "search": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.intent.provider.time.days",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.intent.provider.time.schedule.holidays[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.intent.provider.time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.intent.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_17",
+        "attr": "$.message.intent.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.intent.fulfillment.stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.intent.fulfillment.stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.intent.fulfillment.stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.intent.fulfillment.stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.intent.descriptor.additional_desc.url",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.intent.category.tags[*].list[*].value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.intent.provider.payments[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.intent.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.intent.item.quantity.available.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.intent.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.intent.descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.intent.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.intent.fulfillment.vehicle.category",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.intent.provider.payments[*].params.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.intent.item.quantity.available.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.intent.payment.params.bank_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.intent.fulfillment.type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.intent.fulfillment.stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.intent.fulfillment.stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.intent.fulfillment.stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.intent.fulfillment.stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.intent.payment.type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.intent.category.id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.intent.item.descriptor.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "linked_provider",
+          "linked_order",
+          "fulfill_request"
+        ],
+        "tagPath": "$.message.intent.fulfillment.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_linked_provider",
+        "_SCOPE_": "$.message.intent.fulfillment.tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_linked_order",
+        "_SCOPE_": "$.message.intent.fulfillment.tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "cod_order",
+          "currency",
+          "declared_value",
+          "category",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_fulfill_request",
+        "_SCOPE_": "$.message.intent.fulfillment.tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "lbnp_features",
+          "lbnp_sla_terms"
+        ],
+        "tagPath": "$.message.intent.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_lbnp_features",
+        "_SCOPE_": "$.message.intent.tags[?(@.code=='lbnp_features')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "00B",
+          "00E",
+          "01D",
+          "005",
+          "009",
+          "00C",
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "006",
+          "007",
+          "008",
+          "00A",
+          "00D",
+          "00F",
+          "010",
+          "011",
+          "012",
+          "013",
+          "014",
+          "015",
+          "016",
+          "017",
+          "018",
+          "019",
+          "01A",
+          "01B",
+          "01C",
+          "01D",
+          "01E",
+          "01F",
+          "020",
+          "021"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1_lbnp_sla_terms",
+        "_SCOPE_": "$.message.intent.tags[?(@.code=='lbnp_sla_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "metric",
+          "base_unit",
+          "base_min",
+          "base_max",
+          "penalty_min",
+          "penalty_max",
+          "penalty_unit",
+          "penalty_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "init": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.items[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.provider.category_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_18",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.order.fulfillments[*].rating",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_43",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_46",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_47",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "linked_provider",
+          "fulfill_request",
+          "fulfill_response",
+          "linked_order"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_request",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_response",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_response')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "category",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "type"
+        ],
+        "tagPath": "$.message.order.items[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_type",
+        "_SCOPE_": "$.message.order.items[*].tags[?(@.code=='type')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4",
+        "validTags": [
+          "bap_terms"
+        ],
+        "tagPath": "$.message.order.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_4_bap_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='bap_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "accept_bpp_terms"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "confirm": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.status",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.order.items[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.items[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.items[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.fulfillments[*].stops[*].instructions.short_desc",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.fulfillments[*].stops[*].instructions.additional_desc.content_type",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_46",
+        "attr": "$.message.order.fulfillments[*].stops[*].instructions.additional_desc.url",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_47",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.fulfillments[*].rating",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_53",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_54",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_55",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_56",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_57",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_58",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_59",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_60",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_61",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_62",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_63",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_64",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_65",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_66",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_67",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_68",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_69",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_70",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_71",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_73",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_74",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_75",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_76",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_77",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_78",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_79",
+        "attr": "$.message.order.provider.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_80",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_81",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_82",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_83",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_84",
+        "attr": "$.message.order.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_85",
+        "attr": "$.message.order.provider.locations[*].area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_86",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_87",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_88",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_89",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_90",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_91",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_92",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_93",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_94",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_95",
+        "attr": "$.message.order.created_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_96",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "type"
+        ],
+        "tagPath": "$.message.order.items[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_type",
+        "_SCOPE_": "$.message.order.items[*].tags[?(@.code=='type')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "linked_provider",
+          "linked_order",
+          "linked_order_item",
+          "state",
+          "rto_action",
+          "provider",
+          "order",
+          "cod_settlement_detail",
+          "rto_verification",
+          "items",
+          "reverseqc_input"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address",
+          "cred_code",
+          "cred_desc"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "prep_time",
+          "cod_order",
+          "currency",
+          "declared_value",
+          "collection_amount",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value",
+          "return_to_origin"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_state",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='state')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "ready_to_ship"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_rto_action",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rto_action')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "return_to_origin"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "name",
+          "address",
+          "tax_id"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_cod_settlement_detail",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='cod_settlement_detail')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "settlement_window",
+          "settlement_type",
+          "beneficiary_name",
+          "upi_address",
+          "bank_account_no",
+          "ifsc_code",
+          "bank_name",
+          "branch_name"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_rto_verification",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rto_verification')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "code",
+          "short_desc"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_items",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='items')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value",
+          "hsn_code",
+          "ebn_exempt"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_reverseqc_input",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='reverseqc_input')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "P001",
+          "P003",
+          "Q001"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4",
+        "validTags": [
+          "bap_terms",
+          "lbnp_sla_terms"
+        ],
+        "tagPath": "$.message.order.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_4_bap_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='bap_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "accept_bpp_terms"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4_lbnp_sla_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='lbnp_sla_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "metric",
+          "base_unit",
+          "base_min",
+          "base_max",
+          "penalty_min",
+          "penalty_max",
+          "penalty_unit",
+          "penalty_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "status": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      }
+    ],
+    "track": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      }
+    ],
+    "cancel": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.cancellation_reason_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      }
+    ],
+    "update": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.context.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.update_target",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.items[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Created",
+          "Accepted",
+          "In-progress",
+          "Completed",
+          "Cancelled"
+        ],
+        "enumPath": "$.message.order.status",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_13",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "state",
+          "linked_provider",
+          "linked_order",
+          "linked_order_item"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_state",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='state')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "ready_to_ship",
+          "order_ready"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_search": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.catalog.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.catalog.providers[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.catalog.providers[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.catalog.providers[*].descriptor.short_desc",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_17",
+        "attr": "$.message.catalog.providers[*].descriptor.long_desc",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.catalog.providers[*].categories[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.catalog.providers[*].categories[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.catalog.providers[*].categories[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.catalog.providers[*].fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.catalog.providers[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.catalog.providers[*].items[*].parent_item_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.catalog.providers[*].items[*].fulfillment_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.catalog.providers[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.catalog.providers[*].descriptor.short_desc",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.catalog.providers[*].descriptor.long_desc",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.catalog.providers[*].items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.catalog.providers[*].items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.catalog.providers[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.catalog.providers[*].category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.catalog.providers[*].categories[*].id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.catalog.providers[*].fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "bpp_terms"
+        ],
+        "tagPath": "$.message.catalog.bpp/descriptor.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_bpp_terms",
+        "_SCOPE_": "$.message.catalog.bpp/descriptor.tags[?(@.code=='bpp_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "static_terms",
+          "static_terms_new",
+          "effective_date",
+          "np_tax_type",
+          "max_liability",
+          "max_liability_cap",
+          "mandatory_arbitration",
+          "court_jurisdiction",
+          "delay_interest"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "distance",
+          "fulfill_request",
+          "fulfill_response"
+        ],
+        "tagPath": "$.message.catalog.bpp/providers[*].fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_distance",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].fulfillments[*].tags[?(@.code=='distance')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "motorable_distance_type",
+          "motorable_distance"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1_fulfill_request",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].fulfillments[*].tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1_fulfill_response",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].fulfillments[*].tags[?(@.code=='fulfill_response')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "type"
+        ],
+        "tagPath": "$.message.catalog.bpp/providers[*].items[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_type",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].items[*].tags[?(@.code=='type')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "unit"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "lsp_features",
+          "special_req"
+        ],
+        "tagPath": "$.message.catalog.bpp/providers[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_lsp_features",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].tags[?(@.code=='lsp_features')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "00B",
+          "00E",
+          "01D",
+          "005",
+          "009",
+          "00C",
+          "000",
+          "001",
+          "002",
+          "003",
+          "004",
+          "006",
+          "007",
+          "008",
+          "00A",
+          "00D",
+          "00F",
+          "010",
+          "011",
+          "012",
+          "013",
+          "014",
+          "015",
+          "016",
+          "017",
+          "018",
+          "019",
+          "01A",
+          "01B",
+          "01C",
+          "01D",
+          "01E",
+          "01F",
+          "020",
+          "021"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_special_req",
+        "_SCOPE_": "$.message.catalog.bpp/providers[*].tags[?(@.code=='special_req')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "dangerous_goods",
+          "cold_storage",
+          "open_box_delivery",
+          "fragile_handling",
+          "cod_order"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_init": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.order.items[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_17",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_18",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.fulfillments[*].rating",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_30",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.quote.ttl",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "rider_check",
+          "linked_provider",
+          "fulfill_request",
+          "fulfill_response",
+          "linked_order",
+          "linked_order_item"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_rider_check",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rider_check')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "inline_check_for_rider"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_request",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_response",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_response')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "bpp_terms"
+        ],
+        "tagPath": "$.message.order.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_bpp_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='bpp_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "static_terms"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_confirm": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.provider.locations[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_17",
+        "attr": "$.message.order.items[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.items[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.items[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.items[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.fulfillments[*].tracking",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_43",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_46",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_47",
+        "attr": "$.message.order.fulfillments[*].rating",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_53",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_54",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_55",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_56",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_57",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_58",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_59",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_60",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_61",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_62",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_63",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_64",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_65",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_66",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_67",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_68",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_69",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_72",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_73",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_74",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_75",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_76",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_77",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_78",
+        "attr": "$.message.order.provider.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_79",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_80",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_81",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_82",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_83",
+        "attr": "$.message.order.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_84",
+        "attr": "$.message.order.provider.locations[*].area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_85",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_86",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_87",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_88",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_89",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_90",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_91",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_92",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_93",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_94",
+        "attr": "$.message.order.created_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_95",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Created",
+          "Accepted",
+          "In-progress",
+          "Completed",
+          "Cancelled"
+        ],
+        "enumPath": "$.message.order.status",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_13",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "type"
+        ],
+        "tagPath": "$.message.order.items[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_type",
+        "_SCOPE_": "$.message.order.items[*].tags[?(@.code=='type')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "linked_provider",
+          "linked_order",
+          "linked_order_item",
+          "state",
+          "rto_action",
+          "shipping_label",
+          "weather_check"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_state",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='state')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "ready_to_ship"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_rto_action",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rto_action')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "return_to_origin"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_shipping_label",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='shipping_label')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_weather_check",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='weather_check')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "raining"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4",
+        "validTags": [
+          "bpp_terms",
+          "bap_terms",
+          "lbnp_sla_terms"
+        ],
+        "tagPath": "$.message.order.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_4_bpp_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='bpp_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "static_terms"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4_bap_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='bap_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "accept_bpp_terms"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_4_lbnp_sla_terms",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='lbnp_sla_terms')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "metric",
+          "base_unit",
+          "base_min",
+          "base_max",
+          "penalty_min",
+          "penalty_max",
+          "penalty_unit",
+          "penalty_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_track": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.tracking.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_14",
+        "attr": "$.message.tracking.location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.tracking.location.city.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.tracking.location.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "active",
+          "inactive"
+        ],
+        "enumPath": "$.message.tracking.status",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "order",
+          "config",
+          "path"
+        ],
+        "tagPath": "$.message.tracking.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_order",
+        "_SCOPE_": "$.message.tracking.tags[?(@.code=='order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_config",
+        "_SCOPE_": "$.message.tracking.tags[?(@.code=='config')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "attr",
+          "type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_0_path",
+        "_SCOPE_": "$.message.tracking.tags[?(@.code=='path')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "lat_lng",
+          "sequence"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_cancel": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_18",
+        "attr": "$.message.order.items[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.order.items[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.items[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.payments[*].status",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_43",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_46",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_53",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_54",
+        "attr": "$.message.order.provider.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_55",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_56",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_57",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_58",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_59",
+        "attr": "$.message.order.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_60",
+        "attr": "$.message.order.provider.locations[*].area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_61",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_62",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_63",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_64",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_65",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_66",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_67",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_68",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_69",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_70",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Created",
+          "Accepted",
+          "In-progress",
+          "Completed",
+          "Cancelled"
+        ],
+        "enumPath": "$.message.order.status",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_13",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "igm_request",
+          "precancel_state",
+          "linked_provider",
+          "linked_order",
+          "linked_order_item",
+          "shipping_label",
+          "rto_event"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_igm_request",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='igm_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_precancel_state",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='precancel_state')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "fulfillment_state",
+          "updated_at"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_shipping_label",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='shipping_label')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_rto_event",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rto_event')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "retry_count",
+          "rto_id",
+          "cancellation_reason_id",
+          "sub_reason_id",
+          "cancelled_by"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_update": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_16",
+        "attr": "$.message.order.provider.locations[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_17",
+        "attr": "$.message.order.items[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.items[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.items[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.items[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_24",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_28",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_29",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.fulfillments[*].tracking",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.gps",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_43",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.fulfillments[*].contact.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_46",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_47",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.fulfillments[*].agent.person.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.fulfillments[*].rating",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_53",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_54",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_55",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_56",
+        "attr": "$.message.order.fulfillments[*].stops[*].location.area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_57",
+        "attr": "$.message.order.fulfillments[*].contact.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_58",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_59",
+        "attr": "$.message.order.fulfillments[*].stops[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_60",
+        "attr": "$.message.order.fulfillments[*].vehicle.registration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_61",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_62",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_63",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_64",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_65",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_66",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_67",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_68",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_69",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_70",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_71",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_72",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_73",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_74",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_77",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_78",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_79",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_80",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_81",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_82",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_83",
+        "attr": "$.message.order.provider.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_84",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_85",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_86",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_87",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_88",
+        "attr": "$.message.order.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_89",
+        "attr": "$.message.order.provider.locations[*].area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_90",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_91",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_92",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_93",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_94",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_95",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_96",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_97",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_98",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_99",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Created",
+          "Accepted",
+          "In-progress",
+          "Completed",
+          "Cancelled"
+        ],
+        "enumPath": "$.message.order.status",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_13",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "linked_provider",
+          "linked_order",
+          "linked_order_item",
+          "shipping_label",
+          "fulfill_request",
+          "fulfill_response",
+          "rider_details",
+          "fulfillment_delay",
+          "fulfillment_proof",
+          "ebn",
+          "linked_order_diff",
+          "linked_order_diff_proof"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_shipping_label",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='shipping_label')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_request",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_response",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_response')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "diff_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_rider_details",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rider_details')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "name",
+          "phone"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfillment_delay",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfillment_delay')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "state",
+          "reason_id",
+          "timestamp",
+          "attempt"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfillment_proof",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfillment_proof')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "state",
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_ebn",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='ebn')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "expiry_date"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_diff",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_diff')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_diff_proof",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_diff_proof')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ],
+    "on_status": [
+      {
+        "_NAME_": "validate_attribute_3",
+        "attr": "$.context.key",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_4",
+        "attr": "$.context.action",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_5",
+        "attr": "$.context.version",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_6",
+        "attr": "$.context.bap_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_7",
+        "attr": "$.context.bap_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_8",
+        "attr": "$.context.bpp_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_9",
+        "attr": "$.context.bpp_uri",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_10",
+        "attr": "$.context.transaction_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_11",
+        "attr": "$.context.message_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_12",
+        "attr": "$.context.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_13",
+        "attr": "$.message.order.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_15",
+        "attr": "$.message.order.provider.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_18",
+        "attr": "$.message.order.items[*].time.label",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_19",
+        "attr": "$.message.order.items[*].time.duration",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_20",
+        "attr": "$.message.order.items[*].time.timestamp",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_21",
+        "attr": "$.message.order.quote.price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_22",
+        "attr": "$.message.order.quote.price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_23",
+        "attr": "$.message.order.quote.breakup[*].item.id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_25",
+        "attr": "$.message.order.quote.breakup[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_26",
+        "attr": "$.message.order.quote.breakup[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_27",
+        "attr": "$.message.order.fulfillments[*].id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_31",
+        "attr": "$.message.order.payments[*].collected_by",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_32",
+        "attr": "$.message.order.payments[*].status",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_33",
+        "attr": "$.message.order.billing.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_34",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_35",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_36",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_37",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_38",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_39",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_40",
+        "attr": "$.message.order.billing.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_41",
+        "attr": "$.message.order.billing.tax_id",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_42",
+        "attr": "$.message.order.billing.phone",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_43",
+        "attr": "$.message.order.billing.email",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_44",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_45",
+        "attr": "$.message.order.billing.state.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_47",
+        "attr": "$.message.order.provider.items[*].descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_48",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.count",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_49",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.unit",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_50",
+        "attr": "$.message.order.provider.items[*].quantity.maximum.measure.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_51",
+        "attr": "$.message.order.provider.items[*].price.currency",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_52",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_53",
+        "attr": "$.message.order.provider.descriptor.name",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_54",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_55",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_56",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_57",
+        "attr": "$.message.order.provider.items[*].creator.address",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_58",
+        "attr": "$.message.order.provider.time.range.start",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_59",
+        "attr": "$.message.order.provider.locations[*].area_code",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_60",
+        "attr": "$.message.order.ref_order_ids[*]",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_61",
+        "attr": "$.message.order.provider.time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_62",
+        "attr": "$.message.order.add_ons[*].price.offered_value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_63",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_64",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_65",
+        "attr": "$.message.order.provider.offers[*].time.range.end",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_66",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_67",
+        "attr": "$.message.order.add_ons[*].descriptor.images[*].height",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_68",
+        "attr": "$.message.order.provider.items[*].price.value",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_attribute_69",
+        "attr": "$.message.order.updated_at",
+        "_RETURN_": "attr are present"
+      },
+      {
+        "_NAME_": "validate_enum_1",
+        "enumList": [
+          "nic2004:60232"
+        ],
+        "enumPath": "$.context.domain",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_2",
+        "enumList": [
+          "Created",
+          "Accepted",
+          "In-progress",
+          "Completed",
+          "Cancelled"
+        ],
+        "enumPath": "$.message.order.status",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_3",
+        "enumList": [
+          "P2P",
+          "P2H2P"
+        ],
+        "enumPath": "$.message.order.items[*].descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_4",
+        "enumList": [
+          "Express Delivery",
+          "Standard Delivery",
+          "Immediate Delivery",
+          "Next Day Delivery",
+          "Same Day Delivery",
+          "Instant Delivery"
+        ],
+        "enumPath": "$.message.order.provider.category_id",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_5",
+        "enumList": [
+          "Delivery",
+          "Return",
+          "RTO"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_6",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_7",
+        "enumList": [
+          "2",
+          "3",
+          "4",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_8",
+        "enumList": [
+          "OTP"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_9",
+        "enumList": [
+          "1",
+          "2",
+          "3",
+          "5"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].stops[*].instructions.code",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_10",
+        "enumList": [
+          "Pending",
+          "Cancelled",
+          "Order-picked-up",
+          "RTO",
+          "RTO-Initiated",
+          "RTO-Delivered",
+          "RTO-Disposed",
+          "Out-for-pickup",
+          "At-destination-hub",
+          "In-transit",
+          "At-pickup",
+          "Out-for-delivery",
+          "At-delivery",
+          "Searching-for-Agent",
+          "Agent-assigned",
+          "Pickup-failed",
+          "Pickup-rescheduled",
+          "Delivery-failed",
+          "Delivery-rescheduled",
+          "Order-delivered"
+        ],
+        "enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_11",
+        "enumList": [
+          "ON-ORDER",
+          "ON-FULFILLMENT",
+          "POST-FULFILLMENT"
+        ],
+        "enumPath": "$.message.order.payments[*].type",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_enum_12",
+        "enumList": [
+          "lbnp",
+          "lsp"
+        ],
+        "enumPath": "$.message.order.payments[*].params.bank_account_number",
+        "_CONTINUE_": "!(enumPath are present)",
+        "_RETURN_": "enumPath all in enumList"
+      },
+      {
+        "_NAME_": "validate_enum_13",
+        "enumList": [
+          "delivery",
+          "rto",
+          "tax",
+          "diff",
+          "tax_diff",
+          "discount",
+          "cod"
+        ],
+        "enumPath": "$.message.order.quote.breakup[*].title",
+        "_RETURN_": "enumPath all in enumList && enumPath are present"
+      },
+      {
+        "_NAME_": "validate_tag_0",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].start.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_0_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].start.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_1",
+        "validTags": [
+          "masked_contact"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].end.contact.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_1_masked_contact",
+        "_SCOPE_": "$.message.order.fulfillments[*].end.contact.tags[?(@.code=='masked_contact')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "setup",
+          "token"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2",
+        "validTags": [
+          "tracking",
+          "linked_provider",
+          "linked_order",
+          "linked_order_item",
+          "shipping_label",
+          "fulfill_request",
+          "fulfill_response",
+          "rider_details",
+          "cod_collection_detail",
+          "cod_settlement_detail",
+          "rto_event",
+          "reverseqc_output"
+        ],
+        "tagPath": "$.message.order.fulfillments[*].tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_2_tracking",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='tracking')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "gps_enabled",
+          "url_enabled",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_provider",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_provider')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "name",
+          "address"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "id",
+          "currency",
+          "declared_value",
+          "weight_unit",
+          "weight_value",
+          "dim_unit",
+          "length",
+          "breadth",
+          "height",
+          "shipment_type"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_linked_order_item",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='linked_order_item')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "category",
+          "name",
+          "currency",
+          "value",
+          "quantity",
+          "weight_unit",
+          "weight_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_shipping_label",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='shipping_label')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_request",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_request')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "motorable_distance",
+          "pickup_slot_start",
+          "pickup_slot_end",
+          "delivery_slot_start",
+          "delivery_slot_end"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_fulfill_response",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='fulfill_response')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "rider_count",
+          "order_count",
+          "rate_basis",
+          "diff_value"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_rider_details",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rider_details')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "name",
+          "phone",
+          "vehicle_registration"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_cod_collection_detail",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='cod_collection_detail')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "currency",
+          "value",
+          "transaction_id",
+          "timestamp"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_cod_settlement_detail",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='cod_settlement_detail')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "settlement_window",
+          "settlement_type",
+          "beneficiary_name",
+          "upi_address",
+          "bank_account_no",
+          "ifsc_code",
+          "bank_name",
+          "branch_name"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_rto_event",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='rto_event')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "retry_count",
+          "rto_id",
+          "cancellation_reason_id",
+          "reason_id",
+          "sub_reason_id",
+          "cancelled_by"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_2_reverseqc_output",
+        "_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.code=='reverseqc_output')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "P001",
+          "P003",
+          "Q001"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3",
+        "validTags": [
+          "diff_dim",
+          "diff_weight",
+          "diff_proof"
+        ],
+        "tagPath": "$.message.order.tags[*].code",
+        "_CONTINUE_": "!(tagPath are present)",
+        "_RETURN_": "tagPath all in validTags"
+      },
+      {
+        "_NAME_": "validate_tag_3_diff_dim",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='diff_dim')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "unit",
+          "length",
+          "breadth",
+          "height"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_diff_weight",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='diff_weight')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "unit",
+          "weight"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      },
+      {
+        "_NAME_": "validate_tag_3_diff_proof",
+        "_SCOPE_": "$.message.order.tags[?(@.code=='diff_proof')]",
+        "subTags": "$.list[*].descriptor.code",
+        "validValues": [
+          "type",
+          "url"
+        ],
+        "_RETURN_": "subTags all in validValues"
+      }
+    ]
+  }
+}

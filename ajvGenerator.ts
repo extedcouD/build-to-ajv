@@ -2,67 +2,72 @@ import yaml from "js-yaml";
 import { readFileSync, writeFileSync } from "fs";
 import { BUID_TYPE } from "./buildTypes";
 import RefParser from "@apidevtools/json-schema-ref-parser";
-import {
-  addEnumsToSchemaAdvanced,
-  removeEnumSchemas,
-  resolveAllOf,
-  setOnlyRequiredPathsWithWarnings,
-} from "./schemaUtils";
 import { enumsFromObj } from "./enumUtils";
-import { JSONSchema7 } from "json-schema";
 import { ConvertAttributeFromBuildToTable } from "./attrUtils";
+
 async function dereferenceSchema(schema: any) {
-  try {
-    const dereferencedSchema = await RefParser.dereference(schema);
-    return dereferencedSchema;
-  } catch (error) {
-    console.error("Error dereferencing schema:", error);
-  }
+	try {
+		const dereferencedSchema = await RefParser.dereference(schema);
+		return dereferencedSchema;
+	} catch (error) {
+		console.error("Error dereferencing schema:", error);
+	}
 }
 
-const run = async () => {
-  const yamlData = readFileSync("./build.yaml", "utf8");
-  const raw = yaml.load(yamlData);
-  const data = (await dereferenceSchema(raw)) as BUID_TYPE;
-  const paths = data.paths;
-  const apis = Object.keys(paths).map((key) => {
-    return key.split("/")[1];
-  });
-  const targetApi = apis[0];
-  const existingSchema =
-    paths[`/${targetApi}`].post.requestBody.content["application/json"].schema;
-  console.log("resolving allOf");
-  const removeAllOf = resolveAllOf(existingSchema);
-  const afterEnums = removeEnumSchemas(removeAllOf);
-  // const resolvedSchema = resolveAllOf(afterEnums);
-  const enums = data["x-enum"];
-  const enumData = enumsFromObj(enums);
+export const CREATE_FIRST = async () => {
+	const yamlData = readFileSync("./build.yaml", "utf8");
+	const raw = yaml.load(yamlData);
+	const data = (await dereferenceSchema(raw)) as BUID_TYPE;
+	const paths = data.paths;
+	const apis = Object.keys(paths).map((key) => {
+		return key.split("/")[1];
+	});
+	const output: any = {};
+	// const resolvedSchema = resolveAllOf(afterEnums);
+	const enums = data["x-enum"];
+	const enumData = enumsFromObj(enums);
+	const attri = data["x-attributes"];
+	const extractedAttr = ConvertAttributeFromBuildToTable(attri);
+	for (const targetApi of apis) {
+		// const existingSchema =
+		// 	paths[`/${targetApi}`].post.requestBody.content["application/json"]
+		// 		.schema;
 
-  const targetEnum = enumData[targetApi];
-  const newEnumsSchema = addEnumsToSchemaAdvanced(
-    afterEnums as JSONSchema7,
-    targetEnum
-  );
+		// const requiredSchema = removeRequiredAndEnum(existingSchema);
 
-  const attri = data["x-attributes"];
-  const extractedAttr = ConvertAttributeFromBuildToTable(attri);
-  const requiredSchema = setOnlyRequiredPathsWithWarnings(
-    newEnumsSchema,
-    extractedAttr[targetApi]
-  );
-  const generatedOutput = {
-    [targetApi]: existingSchema,
-    new: requiredSchema,
-    // enums: targetEnum,
-    attributes: extractedAttr[targetApi],
-  };
+		const targetEnum = enumData[targetApi];
 
-  writeFileSync("./build.json", JSON.stringify(generatedOutput, null, 2));
+		const apiSet = new Set<string>();
+		for (const cat in extractedAttr) {
+			for (const api in extractedAttr[cat]) {
+				apiSet.add(api);
+			}
+		}
+		const reverse: any = {};
+		for (const api of apiSet) {
+			reverse[api] = {};
+			for (const key in extractedAttr) {
+				if (extractedAttr[key][api]) {
+					reverse[api][key] = extractedAttr[key][api];
+				} else {
+					reverse[api][key] = [];
+				}
+			}
+		}
+
+		const generatedOutput = {
+			l1_attributes: reverse[targetApi],
+			l1_enums: targetEnum,
+		};
+		output[targetApi] = generatedOutput;
+	}
+	const yml = yaml.dump(output);
+	writeFileSync("./validation.yaml", yml);
 };
 
-(async () => {
-  run();
-})();
+// (async () => {
+// 	await run();
+// })();
 
 // laod yaml
 // convert yaml to json

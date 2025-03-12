@@ -1,0 +1,3244 @@
+{
+	"_TESTS_": {
+		"search": [
+			{
+				"_NAME_": "Required_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_TTL",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["search"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.intent.fulfillment.vehicle.category",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.intent.fulfillment.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.intent.fulfillment.stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.intent.fulfillment.stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.intent.fulfillment.stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.intent.fulfillment.state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.intent.payment.tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.intent.payment.tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.intent.payment.tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["PAGINATION"],
+				"tagPath": "$.message.intent.tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_PAGINATION",
+				"_SCOPE_": "$.message.intent.tags[?(@.descriptor.code=='PAGINATION')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PAGINATION_ID", "REQUESTED_PAGE_NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"select": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Selected_Item_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_ID",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["select"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"init": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Selected_Item_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_ID",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Collected_By",
+				"attr": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Status",
+				"attr": "$.message.order.payments[*].status",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Type",
+				"attr": "$.message.order.payments[*].type",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["init"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"confirm": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Selected_Item_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_ID",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Transaction_Id",
+				"attr": "$.message.order.payments[*].params.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Currency",
+				"attr": "$.message.order.payments[*].params.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Amount",
+				"attr": "$.message.order.payments[*].params.amount",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["confirm"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			}
+		],
+		"status": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["status"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			}
+		],
+		"cancel": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Order_Id",
+				"attr": "$.message.order_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Id",
+				"attr": "$.message.cancellation_reason_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_Name",
+				"attr": "$.message.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["cancel"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SOFT-CANCEL", "CONFIRM-CANCEL"],
+				"enumPath": "$.message.descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			}
+		],
+		"on_search": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Catalog_Name",
+				"attr": "$.message.catalog.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Id",
+				"attr": "$.message.catalog.providers[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.catalog.providers[*].descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.catalog.providers[*].fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.catalog.providers[*].fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Category_Id",
+				"attr": "$.message.catalog.providers[*].categories[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.catalog.providers[*].time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.catalog.providers[*].time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_search"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SEATER", "SLEEPER", "SEMI_SLEEPER", "TICKET", "PASS"],
+				"enumPath": "$.message.catalog.providers[*].categories[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id_and_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.catalog.providers[*].descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Vehicle_Category_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.catalog.providers[*].fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.catalog.providers[*].payments[*].status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.catalog.providers[*].payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.catalog.providers[*].payments[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.catalog.providers[*].items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.catalog.providers[*].items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.catalog.providers[*].fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Route_Info",
+				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Ticket_Info",
+				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Trip_Details",
+				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Info",
+				"_SCOPE_": "$.message.catalog.providers[*].fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.catalog.providers[*].payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.catalog.providers[*].payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.catalog.providers[*].payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["SCHEDULED_INFO"],
+				"tagPath": "$.message.catalog.providers[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SCHEDULED_INFO",
+				"_SCOPE_": "$.message.catalog.providers[*].tags[?(@.descriptor.code=='SCHEDULED_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["GTFS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["PAGINATION"],
+				"tagPath": "$.message.catalog.tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tags_ENUM_for_PAGINATION",
+				"_SCOPE_": "$.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"PAGINATION_ID",
+					"CURRENT_PAGE_NUMBER",
+					"MAX_PAGE_NUMBER"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_select": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Items_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Category_Id",
+				"attr": "$.message.order.items[*].category_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.order.provider.time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.order.provider.time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Currency",
+				"attr": "$.message.order.quote.breakup[*].item.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Value",
+				"attr": "$.message.order.quote.breakup[*].item.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Count",
+				"attr": "$.message.order.quote.breakup[*].item.quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Url",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Mimetype",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.mimetype",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_select"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_init": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Items_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Category_Id",
+				"attr": "$.message.order.items[*].category_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.order.provider.time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.order.provider.time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Count",
+				"attr": "$.message.order.quote.breakup[*].item.quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Value",
+				"attr": "$.message.order.quote.breakup[*].item.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Currency",
+				"attr": "$.message.order.quote.breakup[*].item.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Url",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Mimetype",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.mimetype",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_init"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_confirm": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Order_Id",
+				"attr": "$.message.order.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Name",
+				"attr": "$.message.order.items[*].descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Transaction_Id",
+				"attr": "$.message.order.payments[*].params.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Currency",
+				"attr": "$.message.order.payments[*].params.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Amount",
+				"attr": "$.message.order.payments[*].params.amount",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Category_Id",
+				"attr": "$.message.order.items[*].category_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.order.provider.time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.order.provider.time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Value",
+				"attr": "$.message.order.quote.breakup[*].item.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Price_Currency",
+				"attr": "$.message.order.quote.breakup[*].item.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Count",
+				"attr": "$.message.order.quote.breakup[*].item.quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Url",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Mimetype",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.mimetype",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Created_At",
+				"attr": "$.message.order.created_at",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Updated_At",
+				"attr": "$.message.order.updated_at",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_confirm"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Order_Status_ENUM",
+				"enumList": [
+					"SOFT_CANCEL",
+					"ACTIVE",
+					"COMPLETE",
+					"CANCELLED",
+					"CANCEL_INITIATED"
+				],
+				"enumPath": "$.message.order.status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_cancel": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_ID",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_Name",
+				"attr": "$.message.order.items[*].descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Category_Id",
+				"attr": "$.message.order.items[*].category_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Images",
+				"attr": "$.message.order.provider.descriptor.images[*].url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.order.provider.time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.order.provider.time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Bank_Code",
+				"attr": "$.message.order.payments[*].params.bank_code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Bank_Account_Number",
+				"attr": "$.message.order.payments[*].params.bank_account_number",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Url",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Mimetype",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.mimetype",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancelled_By",
+				"attr": "$.message.order.cancellation.cancelled_by",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Time",
+				"attr": "$.message.order.cancellation.time",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_cancel"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Order_Status_ENUM",
+				"enumList": [
+					"SOFT_CANCEL",
+					"ACTIVE",
+					"COMPLETE",
+					"CANCELLED",
+					"CANCEL_INITIATED"
+				],
+				"enumPath": "$.message.order.status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_update": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Order_Id",
+				"attr": "$.message.order.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Name",
+				"attr": "$.message.order.items[*].descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Breakup_Currency",
+				"attr": "$.message.order.quote.breakup[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Breakup_Value",
+				"attr": "$.message.order.quote.breakup[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Transaction_Id",
+				"attr": "$.message.order.payments[*].params.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Currency",
+				"attr": "$.message.order.payments[*].params.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Amount",
+				"attr": "$.message.order.payments[*].params.amount",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_cancel"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Order_Status_ENUM",
+				"enumList": [
+					"SOFT_CANCEL",
+					"ACTIVE",
+					"COMPLETE",
+					"CANCELLED",
+					"CANCEL_INITIATED"
+				],
+				"enumPath": "$.message.order.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			}
+		],
+		"on_status": [
+			{
+				"_NAME_": "Requied_City_Code",
+				"attr": "$.context.location.city.code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Timestamp",
+				"attr": "$.context.timestamp",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_ID",
+				"attr": "$.context.bap_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Transaction_ID",
+				"attr": "$.context.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_ID",
+				"attr": "$.context.message_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.version",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BAP_URI",
+				"attr": "$.context.bap_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Version",
+				"attr": "$.context.ttl",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_ID",
+				"attr": "$.context.bpp_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_BPP_URI",
+				"attr": "$.context.bpp_uri",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Id",
+				"attr": "$.message.order.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_ID",
+				"attr": "$.message.order.items[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Message_Name",
+				"attr": "$.message.order.items[*].descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Currency",
+				"attr": "$.message.order.items[*].price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Price_Value",
+				"attr": "$.message.order.items[*].price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Selected_Count",
+				"attr": "$.message.order.items[*].quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Fulfillment_Id",
+				"attr": "$.message.order.items[*].fulfillment_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Label",
+				"attr": "$.message.order.items[*].time.label",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Time_Duration",
+				"attr": "$.message.order.items[*].time.duration",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Id",
+				"attr": "$.message.order.provider.id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Name",
+				"attr": "$.message.order.provider.descriptor.name",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.fulfillments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Value",
+				"attr": "$.message.order.quote.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Quote_Currency",
+				"attr": "$.message.order.quote.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Fulfillment_Id",
+				"attr": "$.message.order.payments[*].id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Transaction_Id",
+				"attr": "$.message.order.payments[*].params.transaction_id",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Currency",
+				"attr": "$.message.order.payments[*].params.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Amount",
+				"attr": "$.message.order.payments[*].params.amount",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Bank_Code",
+				"attr": "$.message.order.payments[*].params.bank_code",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Bank_Account_Number",
+				"attr": "$.message.order.payments[*].params.bank_account_number",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Payment_Virtual_Payment_Address",
+				"attr": "$.message.order.payments[*].params.virtual_payment_address",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Item_Category_Id",
+				"attr": "$.message.order.items[*].category_ids[*]",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_Start",
+				"attr": "$.message.order.provider.time.range.start",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Provider_Time_End",
+				"attr": "$.message.order.provider.time.range.end",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Currency",
+				"attr": "$.message.order.quote.breakup[*].item.price.currency",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Value",
+				"attr": "$.message.order.quote.breakup[*].item.price.value",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Break_Up_Item_Count",
+				"attr": "$.message.order.quote.breakup[*].item.quantity.selected.count",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Url",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.url",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Cancellation_Terms_External_Ref_Mimetype",
+				"attr": "$.message.order.cancellation_terms[*].external_ref.mimetype",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Created_At",
+				"attr": "$.message.order.created_at",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Updated_At",
+				"attr": "$.message.order.updated_at",
+				"_RETURN_": "attr are present"
+			},
+			{
+				"_NAME_": "Required_Action_and_ENUM",
+				"enumList": ["on_status"],
+				"enumPath": "$.context.action",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Country_Code_and_ENUM",
+				"enumList": ["IND"],
+				"enumPath": "$.context.location.country.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Domain_and_ENUM",
+				"enumList": ["ONDC:TRV11"],
+				"enumPath": "$.context.domain",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Item_Code_ENUM",
+				"enumList": ["SJT", "SFSJT", "RJT", "PASS"],
+				"enumPath": "$.message.order.items[*].descriptor.code",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Required_Vehicle_Category_and_ENUM",
+				"enumList": ["METRO"],
+				"enumPath": "$.message.order.fulfillments[*].vehicle.category",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fullfillment_Type_ENUM",
+				"enumList": ["ROUTE", "TRIP", "TICKET", "PASS", "STOPS"],
+				"enumPath": "$.message.order.fulfillments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Stops_type_ENUM",
+				"enumList": ["START", "END", "INTERMEDIATE_STOP", "TRANSIT_STOP"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Type_ENUM",
+				"enumList": ["QR"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.type",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Authorization_Status_ENUM",
+				"enumList": ["UNCLAIMED", "CLAIMED", "EXPIRED"],
+				"enumPath": "$.message.order.fulfillments[*].stops[*].authorization.status",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Fulfillment_State_Code_ENUM",
+				"enumList": ["INACTIVE", "ACTIVE"],
+				"enumPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(enumPath are present)",
+				"_RETURN_": "enumPath all in enumList"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": ["NOT-PAID", "PAID"],
+				"enumPath": "$.message.order.payments[*].status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Collected_By_ENUM",
+				"enumList": ["BPP", "BAP"],
+				"enumPath": "$.message.order.payments[*].collected_by",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Payment_Type_ENUM",
+				"enumList": ["PRE-ORDER", "ON-FULFILLMENT", "POST-FULFILLMENT"],
+				"enumPath": "$.message.order.payments[*].type",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Quote_Breakup_Title_ENUM",
+				"enumList": [
+					"BASE_FARE",
+					"REFUND",
+					"CANCELLATION_CHARGES",
+					"OFFER",
+					"TOLL"
+				],
+				"enumPath": "$.message.order.quote.breakup[*].title",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Order_Status_ENUM",
+				"enumList": [
+					"SOFT_CANCEL",
+					"ACTIVE",
+					"COMPLETE",
+					"CANCELLED",
+					"CANCEL_INITIATED"
+				],
+				"enumPath": "$.message.order.status",
+				"_RETURN_": "enumPath all in enumList && enumPath are present"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["ROUTE_INFO", "TICKET_INFO", "TRIP_DETAILS", "INFO"],
+				"tagPath": "$.message.order.fulfillments[*].state.descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_ROUTE_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='ROUTE_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["ROUTE_ID", "ROUTE_DIRECTION"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TICKET_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TICKET_INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["NUMBER"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_TRIP_DETAILS",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='TRIP_DETAILS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["AVAILABLE_TRIPS", "UTILIZED_TRIPS"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_INFO",
+				"_SCOPE_": "$.message.order.fulfillments[*].tags[?(@.state.descriptor.code=='INFO')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["PARENT_ITEM_ID"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["FARE_POLICY"],
+				"tagPath": "$.message.order.items[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_ENUM_for_Fair_Policy",
+				"_SCOPE_": "$.message.order.items[*].tags[?(@.descriptor.code=='FARE_POLICY')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": ["RESTRICTED_PERSON", "RESTRICTION_PROOF"],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Group_ENUM",
+				"validTags": ["BUYER_FINDER_FEES", "SETTLEMENT_TERMS"],
+				"tagPath": "$.message.order.payments[*].tags[*].descriptor.code",
+				"_CONTINUE_": "!(tagPath are present)",
+				"_RETURN_": "tagPath all in validTags"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_BUYER_FINDER_FEES",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='BUYER_FINDER_FEES')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"BUYER_FINDER_FEES_PERCENTAGE",
+					"BUYER_FINDER_FEES_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			},
+			{
+				"_NAME_": "Tag_Enum_for_SETTLEMENT_TERMS",
+				"_SCOPE_": "$.message.order.payments[*].tags[?(@.descriptor.code=='SETTLEMENT_TERMS')]",
+				"subTags": "$.list[*].descriptor.code",
+				"validValues": [
+					"SETTLEMENT_WINDOW",
+					"SETTLEMENT_BASIS",
+					"SETTLEMENT_TYPE",
+					"MANDATORY_ARBITRATION",
+					"COURT_JURISDICTION",
+					"DELAY_INTEREST",
+					"STATIC_TERMS",
+					"SETTLEMENT_AMOUNT"
+				],
+				"_RETURN_": "subTags all in validValues"
+			}
+		]
+	},
+	"_SESSION_DATA_": {
+		"search": {
+			"transaction_id": "$.context.transaction_id"
+		}
+	}
+}
