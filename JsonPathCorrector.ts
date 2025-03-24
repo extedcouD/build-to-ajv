@@ -77,6 +77,7 @@ export function findClosestJsonPath(
 	validPaths: string[],
 	invalidPath: string
 ): string | undefined {
+	console.log("validPaths", validPaths);
 	if (validPaths.length === 0) {
 		return undefined;
 	}

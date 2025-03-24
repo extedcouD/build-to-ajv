@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
 import { findClosestJsonPath } from "./JsonPathCorrector";
-import { tags } from "./tags";
 
 // const givenTags = tags;
 

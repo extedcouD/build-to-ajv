@@ -35,21 +35,22 @@ export async function CREATE_BASE_VALIDATIONS(
 			continue;
 		}
 		const attr_output: any[] = [];
+		const alreadyUsed: string[] = [];
 		let i = 0;
 		for (const cat of Object.keys(attr)) {
 			console.log("working on", cat);
 			console.log(attr[cat]);
 			for (const a of attr[cat]) {
 				i++;
-				const attrName = `Required_${a.split(".")[1]}_${a.split(".").pop()}_${i}`;
+				const attrName = `Required_${a.split(".")[1]}_${a.split(".").pop()}`;
 
 				const ob: any = {
-					_NAME_: removeSpecialChars(attrName.toUpperCase()),
+					_NAME_: removeSpecialChars(attrName.toUpperCase(), alreadyUsed, i),
 					attr: a,
 					_RETURN_: "attr are present",
 				};
 
-				if (enums.map((p) => p.path).includes(a)) {
+				if (enums && enums.map((p) => p.path).includes(a)) {
 					const enumData = enums.find((p) => p.path === a);
 					const enumList = enumData?.enums.map((e) => e.code);
 					ob.enumList = enumList;
@@ -77,9 +78,9 @@ export async function CREATE_BASE_VALIDATIONS(
 			const enumList = enumData.enums.map((e) => e.code);
 			var enumName = `Valid_ENUM_${enum_path.split(".")[1]}_${enum_path
 				.split(".")
-				.pop()}_${i}`;
+				.pop()}`;
 			enum_output.push({
-				_NAME_: removeSpecialChars(enumName.toUpperCase()),
+				_NAME_: removeSpecialChars(enumName.toUpperCase(), alreadyUsed, i),
 				enumList: enumList,
 				enumPath: enum_path,
 				_CONTINUE_: "!(enumPath are present)",
@@ -96,10 +97,19 @@ export async function CREATE_BASE_VALIDATIONS(
 	// );
 }
 
-function giveName(path: string, alreadyUsed: string[], index: number) {
-	const name = `Required_${path.split(".")[1]}_${path.split(".").pop()}`;
+function giveName(name: string, alreadyUsed: string[], index: number) {
+	if (alreadyUsed.includes(name)) {
+		alreadyUsed.push(`${name}_${index}`);
+		return `${name}_${index}`;
+	}
+	alreadyUsed.push(name);
+	return name;
 }
 
-function removeSpecialChars(input: string): string {
-	return input.replace(/[^a-zA-Z0-9_]/g, "");
+function removeSpecialChars(
+	input: string,
+	alreadyUsed: string[],
+	index: number
+): string {
+	return giveName(input.replace(/[^a-zA-Z0-9_]/g, ""), alreadyUsed, index);
 }

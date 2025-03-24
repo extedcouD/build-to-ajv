@@ -1,1586 +1,184 @@
-search:
+issue:
   l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.message.intent.fulfillment.stops[*].type
-      - $.message.intent.fulfillment.stops[*].location.gps
-      - $.message.intent.payment.collected_by
+    Flow1:
+      - $.message.issue.id
+      - $.message.issue.status
+      - $.message.issue.level
+      - $.message.issue.created_at
+      - $.message.issue.updated_at
+      - $.message.issue.expected_response_time.duration
+      - $.message.issue.expected_resolution_time.duration
+      - $.message.issue.refs[*].ref_id
+      - $.message.issue.refs[*].ref_type
+      - $.message.issue.actors[*].id
+      - $.message.issue.actors[*].type
+      - $.message.issue.actors[*].info.person.name
+      - $.message.issue.actors[*].info.person.name
+      - $.message.issue.actors[*].info.contact.phone
+      - $.message.issue.actors[*].info.contact.email
+      - $.message.issue.source_id
+      - $.message.issue.complainant_id
+      - $.message.issue.descriptor.code
+      - $.message.issue.descriptor.short_desc
+      - $.message.issue.descriptor.long_desc
+      - $.message.issue.descriptor.additional_desc.url
+      - $.message.issue.descriptor.additional_desc.content_type
+      - $.message.issue.descriptor.name
+      - $.message.issue.last_action_id
+      - $.message.issue.actions[*].id
+      - $.message.issue.actions[*].descriptor.code
+      - $.message.issue.actions[*].descriptor.short_desc
+      - $.message.issue.actions[*].updated_at
+      - $.message.issue.actions[*].action_by
+      - $.message.issue.actions[*].descriptor.name
   l1_enums:
-    - path: $.context.action
-      enums:
-        - code: search
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.intent.category.descriptor.code
-      enums:
-        - code: ON_DEMAND_TRIP
-        - code: ON_DEMAND_RENTAL
-        - code: SCHEDULED_TRIP
-        - code: SCHEDULED_RENTAL
-    - path: $.message.intent.fulfillment.vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.intent.fulfillment.vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.intent.fulfillment.vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.intent.fulfillment.type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.intent.fulfillment.stops[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.intent.fulfillment.stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.intent.fulfillment.stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.intent.fulfillment.state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.intent.payment.status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.intent.payment.collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.intent.payment.type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-select:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.provider.id
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: select
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-init:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.provider.id
-      - $.message.order.billing.name
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: init
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-confirm:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.provider.id
-      - $.message.order.billing.name
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].params.virtual_payment_address
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: confirm
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-status:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: status
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-track: {}
-cancel:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order_id
-      - $.message.cancellation_reason_id
-      - $.message.descriptor.code
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: cancel
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.cancellation_reason_id
-      enums:
-        - code: '000'
-        - code: '001'
-        - code: '002'
-        - code: '003'
-        - code: '004'
-        - code: '005'
-        - code: '011'
-        - code: '012'
-        - code: '013'
-        - code: '014'
-    - path: $.message.descriptor.code
-      enums:
-        - code: SOFT_CANCEL
-        - code: CONFIRM_CANCEL
-        - code: ACTIVE
-        - code: COMPLETE
-        - code: CANCELLED
-update:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.id
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: update
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
-        - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-rating: {}
-support: {}
-on_search:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.catalog.descriptor.name
-      - $.message.catalog.providers[*].id
-      - $.message.catalog.providers[*].fulfillments[*].id
-      - $.message.catalog.providers[*].fulfillments[*].type
-      - $.message.catalog.providers[*].fulfillments[*].type
-      - $.message.catalog.providers[*].fulfillments[*].stops[*].location.gps
-      - $.message.catalog.providers[*].fulfillments[*].vehicle.category
-      - $.message.catalog.providers[*].id
-      - $.message.catalog.providers[*].descriptor.code
-      - $.message.catalog.providers[*].descriptor.name
-      - $.message.catalog.providers[*].items[*].price.currency
-      - $.message.catalog.providers[*].items[*].price.value
-      - $.message.catalog.providers[*].items[*].fulfillment_ids[*]
-      - $.message.catalog.providers[*].payments[*].collected_by
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_search
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.catalog.providers[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.catalog.providers[*].fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.catalog.providers[*].fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.catalog.providers[*].fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.catalog.providers[*].fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.catalog.providers[*].fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: >-
-        $.message.catalog.providers[*].fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: >-
-        $.message.catalog.providers[*].fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.catalog.providers[*].fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.catalog.providers[*].payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.catalog.providers[*].payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.catalog.providers[*].payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.catalog.providers[*].categories[*].descriptor.code
-      enums:
-        - code: ON_DEMAND_TRIP
-        - code: ON_DEMAND_RENTAL
-        - code: SCHEDULED_TRIP
-        - code: SCHEDULED_RENTAL
-on_select:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.quote.breakup[*].price.currency
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_select
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
-        - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-on_init:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.items[*].payment_ids[*]
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.currency
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].params.virtual_payment_address
-      - $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      - $.message.order.cancellation_terms[*].reason_required
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_init
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
-        - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-on_confirm:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.items[*].payment_ids[*]
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].state.descriptor.code
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.currency
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].params.virtual_payment_address
-      - $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      - $.message.order.cancellation_terms[*].reason_required
-      - $.message.order.status
-      - $.message.order.created_at
-      - $.message.order.updated_at
-      - $.message.order.id
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_confirm
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
-        - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-    - path: $.message.order.status
-      enums:
-        - code: SOFT_CANCEL
-        - code: CONFIRM_CANCEL
-        - code: ACTIVE
-        - code: COMPLETE
-        - code: CANCELLED
-on_track: {}
-on_cancel:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.items[*].payment_ids[*]
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].agent.person.name
-      - $.message.order.fulfillments[*].agent.contact.phone
-      - $.message.order.fulfillments[*].vehicle.registration
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.fulfillments[*].vehicle.make
-      - $.message.order.fulfillments[*].vehicle.model
-      - $.message.order.fulfillments[*].state.descriptor.code
-      - $.message.order.fulfillments[*].type
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.currency
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      - $.message.order.cancellation_terms[*].reason_required
-      - $.message.order.id
-      - $.message.order.status
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_cancel
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.cancellation.cancelled_by
-      enums:
-        - code: CONSUMER
+    - path: $.message.issue.status
+      enums:
+        - code: OPEN
+        - code: CLOSED
+        - code: PROCESSING
+        - code: RESOLVED
+    - path: $.message.issue.level
+      enums:
+        - code: ISSUE
+        - code: GREVIENCE
+        - code: DISPUTE
+    - path: $.message.issue.refs[*].ref_type
+      enums:
+        - code: ORDER
+        - code: ITEM
+        - code: FULFILLMENT
+        - code: TRANSACTION_ID
+        - code: MESSAGE_ID
         - code: PROVIDER
-    - path: $.message.order.cancellation.reason.descriptor.code
+        - code: COMPLAINT
+        - code: ACTION
+        - code: PAYMENT
+        - code: CUSTOMER
+        - code: AGENT
+    - path: $.message.issue.actors[*].type
       enums:
-        - code: '000'
-        - code: '001'
-        - code: '002'
-        - code: '003'
-        - code: '004'
-        - code: '005'
-        - code: '011'
-        - code: '012'
-        - code: '013'
-        - code: '014'
-    - path: $.message.order.quote.breakup[*].title
+        - code: INERFACING_NP
+        - code: COUNTERPARTY_NP
+        - code: CASCADED_NP
+        - code: PROVIDER
+        - code: AGENT
+        - code: CUSTOMER
+        - code: INTERFACING_NP_GRO
+        - code: COUNTERPARTY_NP_GRO
+        - code: CASCADED_NP_GRO
+    - path: $.message.issue.actions[*].descriptor.name
       enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
+        - code: OPEN
+        - code: CLOSED
+        - code: PROCESSING
+        - code: RESOLVED
+        - code: INFO_REQUESTED
+        - code: INFO_PROVIDED
+        - code: INFO_NOT_AVAILABLE
+        - code: RESOLUTION_PROPOSED
+        - code: RESOLUTION_CASCADED
+        - code: RESOLUTION_ACCEPTED
+        - code: RESOLUTION_REJECTED
+    - path: $.message.issue.resolutions[*].descriptor.name
+      enums:
         - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-    - path: $.message.order.status
-      enums:
-        - code: SOFT_CANCEL
-        - code: CONFIRM_CANCEL
-        - code: ACTIVE
-        - code: COMPLETE
-        - code: CANCELLED
-on_update:
+        - code: RETURN
+        - code: REPLACEMENT
+        - code: NO-ACTION
+        - code: CANCEL
+        - code: NOW-VISIBLE
+        - code: PARENT
+on_issue:
   l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.items[*].payment_ids[*]
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.fulfillments[*].vehicle.registration
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].agent.person.name
-      - $.message.order.fulfillments[*].agent.contact.phone
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].state.descriptor.code
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.currency
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].params.virtual_payment_address
-      - $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      - $.message.order.cancellation_terms[*].reason_required
-      - $.message.order.status
-      - $.message.order.created_at
-      - $.message.order.updated_at
-      - $.message.order.id
+    Flow1:
+      - $.message.issue.id
+      - $.message.issue.status
+      - $.message.issue.level
+      - $.message.issue.created_at
+      - $.message.issue.updated_at
+      - $.message.issue.expected_response_time.duration
+      - $.message.issue.expected_resolution_time.duration
+      - $.message.issue.refs[*].ref_id
+      - $.message.issue.refs[*].ref_type
+      - $.message.issue.actors[*].id
+      - $.message.issue.actors[*].type
+      - $.message.issue.actors[*].info.person.name
+      - $.message.issue.actors[*].info.person.name
+      - $.message.issue.actors[*].info.contact.phone
+      - $.message.issue.actors[*].info.contact.email
+      - $.message.issue.source_id
+      - $.message.issue.complainant_id
+      - $.message.issue.descriptor.code
+      - $.message.issue.descriptor.short_desc
+      - $.message.issue.descriptor.long_desc
+      - $.message.issue.descriptor.additional_desc.url
+      - $.message.issue.descriptor.additional_desc.content_type
+      - $.message.issue.descriptor.name
+      - $.message.issue.last_action_id
+      - $.message.issue.actions[*].id
+      - $.message.issue.actions[*].descriptor.code
+      - $.message.issue.actions[*].descriptor.short_desc
+      - $.message.issue.actions[*].updated_at
+      - $.message.issue.actions[*].action_by
+      - $.message.issue.actions[*].descriptor.name
   l1_enums:
-    - path: $.context.action
+    - path: $.message.issue.status
       enums:
-        - code: on_cancel
-    - path: $.context.location.country.code
+        - code: OPEN
+        - code: CLOSED
+        - code: PROCESSING
+        - code: RESOLVED
+    - path: $.message.issue.level
       enums:
-        - code: IND
-    - path: $.context.location.city.code
+        - code: ISSUE
+        - code: GREVIENCE
+        - code: DISPUTE
+    - path: $.message.issue.refs[*].ref_type
       enums:
-        - code: std:080
-    - path: $.context.domain
+        - code: ORDER
+        - code: ITEM
+        - code: FULFILLMENT
+        - code: TRANSACTION_ID
+        - code: MESSAGE_ID
+        - code: PROVIDER
+        - code: COMPLAINT
+        - code: ACTION
+        - code: PAYMENT
+        - code: CUSTOMER
+        - code: AGENT
+    - path: $.message.issue.actors[*].type
       enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
+        - code: INERFACING_NP
+        - code: COUNTERPARTY_NP
+        - code: CASCADED_NP
+        - code: PROVIDER
+        - code: AGENT
+        - code: CUSTOMER
+        - code: INTERFACING_NP_GRO
+        - code: COUNTERPARTY_NP_GRO
+        - code: CASCADED_NP_GRO
+    - path: $.message.issue.actions[*].descriptor.name
       enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
+        - code: OPEN
+        - code: CLOSED
+        - code: PROCESSING
+        - code: RESOLVED
+        - code: INFO_REQUESTED
+        - code: INFO_PROVIDED
+        - code: INFO_NOT_AVAILABLE
+        - code: RESOLUTION_PROPOSED
+        - code: RESOLUTION_CASCADED
+        - code: RESOLUTION_ACCEPTED
+        - code: RESOLUTION_REJECTED
+    - path: $.message.issue.resolutions[*].descriptor.name
       enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.status
-      enums:
-        - code: SOFT_CANCEL
-        - code: CONFIRM_CANCEL
-        - code: ACTIVE
-        - code: COMPLETE
-        - code: CANCELLED
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
         - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-on_status:
-  l1_attributes:
-    on-demand:
-      - $.context.location.country.code
-      - $.context.location.city.code
-      - $.context.domain
-      - $.context.timestamp
-      - $.context.bap_id
-      - $.context.transaction_id
-      - $.context.message_id
-      - $.context.version
-      - $.context.action
-      - $.context.bap_uri
-      - $.context.ttl
-      - $.context.bpp_id
-      - $.context.bpp_uri
-      - $.message.order.items[*].id
-      - $.message.order.items[*].descriptor.name
-      - $.message.order.items[*].descriptor.code
-      - $.message.order.items[*].price.currency
-      - $.message.order.items[*].price.value
-      - $.message.order.items[*].fulfillment_ids[*]
-      - $.message.order.items[*].payment_ids[*]
-      - $.message.order.provider.id
-      - $.message.order.fulfillments[*].id
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].stops[*].location.gps
-      - $.message.order.fulfillments[*].vehicle.category
-      - $.message.order.fulfillments[*].vehicle.registration
-      - $.message.order.fulfillments[*].customer.person.name
-      - $.message.order.fulfillments[*].customer.contact.phone
-      - $.message.order.fulfillments[*].agent.person.name
-      - $.message.order.fulfillments[*].agent.contact.phone
-      - $.message.order.fulfillments[*].type
-      - $.message.order.fulfillments[*].state.descriptor.code
-      - $.message.order.quote.price.value
-      - $.message.order.quote.price.currency
-      - $.message.order.quote.breakup[*].title
-      - $.message.order.quote.breakup[*].price.currency
-      - $.message.order.quote.breakup[*].price.value
-      - $.message.order.payments[*].id
-      - $.message.order.payments[*].collected_by
-      - $.message.order.payments[*].status
-      - $.message.order.payments[*].type
-      - $.message.order.payments[*].params.bank_code
-      - $.message.order.payments[*].params.bank_account_number
-      - $.message.order.payments[*].params.virtual_payment_address
-      - $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      - $.message.order.cancellation_terms[*].reason_required
-  l1_enums:
-    - path: $.context.action
-      enums:
-        - code: on_status
-    - path: $.context.location.country.code
-      enums:
-        - code: IND
-    - path: $.context.location.city.code
-      enums:
-        - code: std:080
-    - path: $.context.domain
-      enums:
-        - code: ONDC:TRV10
-    - path: $.message.order.items[*].descriptor.code
-      enums:
-        - code: RIDE
-        - code: RENTAL
-    - path: $.message.order.fulfillments[*].vehicle.category
-      enums:
-        - code: AUTO_RICKSHAW
-        - code: CAB
-        - code: TWO_WHEELER
-    - path: $.message.order.fulfillments[*].vehicle.variant
-      enums:
-        - code: SEDAN
-        - code: SUV
-        - code: HATCHBACK
-        - code: TWO_WHEELER
-        - code: AUTO_RICKSHAW
-    - path: $.message.order.fulfillments[*].vehicle.energy_type
-      enums:
-        - code: ELECTRIC
-        - code: PETRO
-        - code: DIESEL
-        - code: HYDROGEN
-        - code: BIOFUELS
-        - code: CNG
-        - code: LPG
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: DELIVERY
-        - code: SELF_PICKUP
-    - path: $.message.order.fulfillments[*].type
-      enums:
-        - code: START
-        - code: END
-    - path: $.message.order.fulfillments[*].stops[*].authorization.type
-      enums:
-        - code: OTP
-        - code: QR
-    - path: $.message.order.fulfillments[*].stops[*].authorization.status
-      enums:
-        - code: UNCLAIMED
-        - code: CLAIMED
-    - path: $.message.order.fulfillments[*].state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.payments[*].status
-      enums:
-        - code: NOT-PAID
-        - code: PAID
-    - path: $.message.order.payments[*].collected_by
-      enums:
-        - code: BPP
-        - code: BAP
-    - path: $.message.order.payments[*].type
-      enums:
-        - code: PRE-ORDER
-        - code: ON-ORDER
-        - code: ON-FULFILLMENT
-    - path: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
-      enums:
-        - code: RIDE_CANCELLED
-        - code: RIDE_ENDED
-        - code: RIDE_STARTED
-        - code: RIDE_ASSIGNED
-        - code: RIDE_ENROUTE_PICKUP
-        - code: RIDE_ARRIVED_PICKUP
-        - code: RIDE_CONFIRMED
-    - path: $.message.order.quote.breakup[*].title
-      enums:
-        - code: BASE_FARE
-        - code: DISTANCE_FARE
-        - code: CANCELLATION_CHARGES
-        - code: REFUND
-        - code: TOLL_CHARGES
-        - code: PARKING_CHARGES
-        - code: TAX
-        - code: WAITING_CHARGES
-        - code: DRIVER_BATA
-        - code: NIGHT_CHARGES
-    - path: $.message.order.status
-      enums:
-        - code: SOFT_CANCEL
-        - code: CONFIRM_CANCEL
-        - code: ACTIVE
-        - code: COMPLETE
-        - code: CANCELLED
-on_rating: {}
-on_support: {}
+        - code: RETURN
+        - code: REPLACEMENT
+        - code: NO-ACTION
+        - code: CANCEL
+        - code: NOW-VISIBLE
+        - code: PARENT
+on_issue_status: {}
+issue_status: {}

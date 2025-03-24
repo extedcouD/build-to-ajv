@@ -6,18 +6,19 @@ import { readFileSync, writeFileSync } from "fs";
 import yaml from "js-yaml";
 import { CREATE_BASE_VALIDATIONS } from "./config-creater";
 import { tagsFromApiObj } from "./convertRawTags";
-import { mergeAttr } from "./merge-attr-enums";
 const run = async () => {
 	const { ConfigCompiler } = await import("ondc-code-generator");
 	const { SupportedLanguages } = await import(
 		"ondc-code-generator/dist/types/compiler-types"
 	);
-	await CREATE_FIRST();
 	var compiler = new ConfigCompiler(SupportedLanguages.Typescript);
 	const build = readFileSync("./build.yaml", "utf8");
+
 	await compiler.initialize(build);
 	const paths = await compiler.generateValidPaths();
 	writeFileSync("./validPaths.json", JSON.stringify(paths, null, 2));
+	await CREATE_FIRST();
+
 	const t = yaml.load(build) as any;
 	const tags = tagsFromApiObj(t["x-tags"]);
 	const apiListForDifference = {
