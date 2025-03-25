@@ -1,184 +1,743 @@
-issue:
-  l1_attributes:
-    Flow1:
-      - $.message.issue.id
-      - $.message.issue.status
-      - $.message.issue.level
-      - $.message.issue.created_at
-      - $.message.issue.updated_at
-      - $.message.issue.expected_response_time.duration
-      - $.message.issue.expected_resolution_time.duration
-      - $.message.issue.refs[*].ref_id
-      - $.message.issue.refs[*].ref_type
-      - $.message.issue.actors[*].id
-      - $.message.issue.actors[*].type
-      - $.message.issue.actors[*].info.person.name
-      - $.message.issue.actors[*].info.person.name
-      - $.message.issue.actors[*].info.contact.phone
-      - $.message.issue.actors[*].info.contact.email
-      - $.message.issue.source_id
-      - $.message.issue.complainant_id
-      - $.message.issue.descriptor.code
-      - $.message.issue.descriptor.short_desc
-      - $.message.issue.descriptor.long_desc
-      - $.message.issue.descriptor.additional_desc.url
-      - $.message.issue.descriptor.additional_desc.content_type
-      - $.message.issue.descriptor.name
-      - $.message.issue.last_action_id
-      - $.message.issue.actions[*].id
-      - $.message.issue.actions[*].descriptor.code
-      - $.message.issue.actions[*].descriptor.short_desc
-      - $.message.issue.actions[*].updated_at
-      - $.message.issue.actions[*].action_by
-      - $.message.issue.actions[*].descriptor.name
+search:
   l1_enums:
-    - path: $.message.issue.status
+    - path: $.context.domain
       enums:
-        - code: OPEN
-        - code: CLOSED
-        - code: PROCESSING
-        - code: RESOLVED
-    - path: $.message.issue.level
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.intent.fulfillment.type
       enums:
-        - code: ISSUE
-        - code: GREVIENCE
-        - code: DISPUTE
-    - path: $.message.issue.refs[*].ref_type
-      enums:
-        - code: ORDER
-        - code: ITEM
-        - code: FULFILLMENT
-        - code: TRANSACTION_ID
-        - code: MESSAGE_ID
-        - code: PROVIDER
-        - code: COMPLAINT
-        - code: ACTION
-        - code: PAYMENT
-        - code: CUSTOMER
-        - code: AGENT
-    - path: $.message.issue.actors[*].type
-      enums:
-        - code: INERFACING_NP
-        - code: COUNTERPARTY_NP
-        - code: CASCADED_NP
-        - code: PROVIDER
-        - code: AGENT
-        - code: CUSTOMER
-        - code: INTERFACING_NP_GRO
-        - code: COUNTERPARTY_NP_GRO
-        - code: CASCADED_NP_GRO
-    - path: $.message.issue.actions[*].descriptor.name
-      enums:
-        - code: OPEN
-        - code: CLOSED
-        - code: PROCESSING
-        - code: RESOLVED
-        - code: INFO_REQUESTED
-        - code: INFO_PROVIDED
-        - code: INFO_NOT_AVAILABLE
-        - code: RESOLUTION_PROPOSED
-        - code: RESOLUTION_CASCADED
-        - code: RESOLUTION_ACCEPTED
-        - code: RESOLUTION_REJECTED
-    - path: $.message.issue.resolutions[*].descriptor.name
-      enums:
-        - code: REFUND
-        - code: RETURN
-        - code: REPLACEMENT
-        - code: NO-ACTION
-        - code: CANCEL
-        - code: NOW-VISIBLE
-        - code: PARENT
-on_issue:
-  l1_attributes:
-    Flow1:
-      - $.message.issue.id
-      - $.message.issue.status
-      - $.message.issue.level
-      - $.message.issue.created_at
-      - $.message.issue.updated_at
-      - $.message.issue.expected_response_time.duration
-      - $.message.issue.expected_resolution_time.duration
-      - $.message.issue.refs[*].ref_id
-      - $.message.issue.refs[*].ref_type
-      - $.message.issue.actors[*].id
-      - $.message.issue.actors[*].type
-      - $.message.issue.actors[*].info.person.name
-      - $.message.issue.actors[*].info.person.name
-      - $.message.issue.actors[*].info.contact.phone
-      - $.message.issue.actors[*].info.contact.email
-      - $.message.issue.source_id
-      - $.message.issue.complainant_id
-      - $.message.issue.descriptor.code
-      - $.message.issue.descriptor.short_desc
-      - $.message.issue.descriptor.long_desc
-      - $.message.issue.descriptor.additional_desc.url
-      - $.message.issue.descriptor.additional_desc.content_type
-      - $.message.issue.descriptor.name
-      - $.message.issue.last_action_id
-      - $.message.issue.actions[*].id
-      - $.message.issue.actions[*].descriptor.code
-      - $.message.issue.actions[*].descriptor.short_desc
-      - $.message.issue.actions[*].updated_at
-      - $.message.issue.actions[*].action_by
-      - $.message.issue.actions[*].descriptor.name
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+select:
   l1_enums:
-    - path: $.message.issue.status
+    - path: $.context.domain
       enums:
-        - code: OPEN
-        - code: CLOSED
-        - code: PROCESSING
-        - code: RESOLVED
-    - path: $.message.issue.level
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.offers[*].tags.code
       enums:
-        - code: ISSUE
-        - code: GREVIENCE
-        - code: DISPUTE
-    - path: $.message.issue.refs[*].ref_type
+        - code: Disc_Pct
+        - code: Disc_Amt
+        - code: BuyXGetY
+        - code: Freebie
+    - path: $.message.order.payment
       enums:
-        - code: ORDER
-        - code: ITEM
-        - code: FULFILLMENT
-        - code: TRANSACTION_ID
-        - code: MESSAGE_ID
-        - code: PROVIDER
-        - code: COMPLAINT
-        - code: ACTION
-        - code: PAYMENT
-        - code: CUSTOMER
-        - code: AGENT
-    - path: $.message.issue.actors[*].type
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+init:
+  l1_enums:
+    - path: $.context.domain
       enums:
-        - code: INERFACING_NP
-        - code: COUNTERPARTY_NP
-        - code: CASCADED_NP
-        - code: PROVIDER
-        - code: AGENT
-        - code: CUSTOMER
-        - code: INTERFACING_NP_GRO
-        - code: COUNTERPARTY_NP_GRO
-        - code: CASCADED_NP_GRO
-    - path: $.message.issue.actions[*].descriptor.name
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].type
       enums:
-        - code: OPEN
-        - code: CLOSED
-        - code: PROCESSING
-        - code: RESOLVED
-        - code: INFO_REQUESTED
-        - code: INFO_PROVIDED
-        - code: INFO_NOT_AVAILABLE
-        - code: RESOLUTION_PROPOSED
-        - code: RESOLUTION_CASCADED
-        - code: RESOLUTION_ACCEPTED
-        - code: RESOLUTION_REJECTED
-    - path: $.message.issue.resolutions[*].descriptor.name
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+confirm:
+  l1_enums:
+    - path: $.context.domain
       enums:
-        - code: REFUND
-        - code: RETURN
-        - code: REPLACEMENT
-        - code: NO-ACTION
-        - code: CANCEL
-        - code: NOW-VISIBLE
-        - code: PARENT
-on_issue_status: {}
-issue_status: {}
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.@ondc/org/settlement_basis
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+    - path: $.message.order.state
+      enums:
+        - code: Created
+        - code: Accepted
+        - code: In-progress
+        - code: Completed
+        - code: Cancelled
+status:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+track:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+cancel:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+update:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.update_target
+      enums:
+        - code: payment
+        - code: item
+    - path: $.message.order.payment.status
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Cancel
+        - code: Delivery
+        - code: Return
+on_search:
+  l1_enums:
+    - path: $.message.intent.bpp/fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: $.message.intent.bpp/providers[*].fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: >-
+        $.message.intent.bpp/providers[*].items[*].quantity.unitized.measure.unit
+      enums:
+        - code: unit
+        - code: gram
+        - code: dozen
+        - code: kilogram
+        - code: tonne
+        - code: litre
+        - code: millilitre
+    - path: $.message.intent.bpp/providers[*].offers[*].descriptor.code
+      enums:
+        - code: Disc_Pct
+        - code: Disc_Amt
+        - code: BuyXGetY
+        - code: Freebie
+on_select:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].state.descriptor.code
+      enums:
+        - code: Serviceable
+        - code: Non-Serviceable
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+on_init:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
+      enums:
+        - code: Pending
+        - code: Packed
+        - code: Pickup-approved
+        - code: Pickup-rejected
+        - code: Order-picked-up
+        - code: Out-for-delivery
+        - code: Order-delivered
+        - code: RTO-Initiated
+        - code: RTO-Delivered
+        - code: RTO-Disposed
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+        - code: SOR
+on_confirm:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: $.message.order.fulfillments[*].state.descriptor.code
+      enums:
+        - code: Pending
+        - code: Packed
+        - code: Pickup-approved
+        - code: Pickup-rejected
+        - code: Order-picked-up
+        - code: Out-for-delivery
+        - code: Order-delivered
+        - code: RTO-Initiated
+        - code: RTO-Delivered
+        - code: RTO-Disposed
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.cancellation_terms[*].fulfillment_state.descriptor.code
+      enums:
+        - code: Pending
+        - code: Packed
+        - code: Pickup-approved
+        - code: Pickup-rejected
+        - code: Order-picked-up
+        - code: Out-for-delivery
+        - code: Order-delivered
+        - code: RTO-Initiated
+        - code: RTO-Delivered
+        - code: RTO-Disposed
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.@ondc/org/settlement_basis
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+    - path: $.message.order.state
+      enums:
+        - code: Created
+        - code: Accepted
+        - code: In-progress
+        - code: Completed
+        - code: Cancelled
+on_track:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.tracking.status
+      enums:
+        - code: active
+        - code: inactive
+on_cancel:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.state
+      enums:
+        - code: Cancelled
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Delivery
+        - code: Self-Pickup
+        - code: Delivery and Self-Pickup
+    - path: $.message.order.fulfillments[*].state.descriptor.code
+      enums:
+        - code: Cancelled
+        - code: RTO-Initiated
+        - code: RTO-Delivered
+        - code: RTO-Disposed
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.@ondc/org/settlement_basis
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+on_update:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].state.descriptor.code
+      enums:
+        - code: Accepted
+        - code: Cancelled
+        - code: Pending
+        - code: Order-delivered
+        - code: Return_Initiated
+        - code: Return_Pick_Failed
+        - code: Return_Approved
+        - code: Return_Picked
+        - code: Return_Delivered
+        - code: Liquidated
+        - code: Return_Rejected
+    - path: $.message.order.fulfillments[*].type
+      enums:
+        - code: Cancel
+        - code: Delivery
+        - code: Return
+    - path: $.message.order.fulfillments[*].end.instructions.code
+      enums:
+        - code: 1
+        - code: 2
+        - code: 3
+        - code: 4
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.@ondc/org/settlement_basis
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+    - path: $.message.order.state
+      enums:
+        - code: Created
+        - code: Accepted
+        - code: In-progress
+        - code: Completed
+        - code: Cancelled
+on_status:
+  l1_enums:
+    - path: $.context.domain
+      enums:
+        - code: ONDC:RET10
+        - code: ONDC:RET11
+        - code: ONDC:RET12
+        - code: ONDC:RET13
+        - code: ONDC:RET14
+        - code: ONDC:RET15
+        - code: ONDC:RET16
+        - code: ONDC:RET17
+        - code: ONDC:RET18
+        - code: ONDC:RET19
+    - path: $.message.order.fulfillments[*].state.descriptor.code
+      enums:
+        - code: Pending
+        - code: Packed
+        - code: Pickup-approved
+        - code: Pickup-rejected
+        - code: Order-picked-up
+        - code: Out-for-delivery
+        - code: Order-delivered
+        - code: RTO-Initiated
+        - code: RTO-Delivered
+        - code: RTO-Disposed
+    - path: $.message.order.fulfillments[*].end.instructions.code
+      enums:
+        - code: 1
+        - code: 2
+        - code: 3
+        - code: 4
+    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+      enums:
+        - code: item
+        - code: delivery
+        - code: packing
+        - code: tax
+        - code: misc
+        - code: discount
+        - code: discount_f
+        - code: tax_f
+        - code: 0
+    - path: $.message.order.quote.breakup[*].item.quantity.available.count
+      enums:
+        - code: 0
+        - code: 99
+    - path: $.message.order.quote.breakup[*].item.quantity.maximum.count
+      enums:
+        - code: 0
+        - code: 10
+    - path: $.message.order.payment.type
+      enums:
+        - code: ON-ORDER
+        - code: ON-FULFILLMENT
+        - code: POST-FULFILLMENT
+    - path: $.message.order.payment.@ondc/org/settlement_details[*].settlement_type
+      enums:
+        - code: upi
+        - code: neft
+        - code: rtgs
+        - code: wallet
+        - code: netbanking
+        - code: paylater
+    - path: $.message.order.payment.@ondc/org/buyer_app_finder_fee_type
+      enums:
+        - code: percent
+        - code: amount
+    - path: $.message.order.payment.collected_by
+      enums:
+        - code: BAP
+        - code: BPP
+    - path: $.message.order.payment.status
+      enums:
+        - code: PAID
+        - code: NOT-PAID
+    - path: $.message.order.payment.@ondc/org/settlement_basis
+      enums:
+        - code: shipment
+        - code: delivery
+        - code: return_window_expiry
+    - path: $.message.order.state
+      enums:
+        - code: Created
+        - code: Accepted
+        - code: In-progress
+        - code: Completed
+        - code: Cancelled

@@ -5,7 +5,7 @@ import RefParser from "@apidevtools/json-schema-ref-parser";
 import { enumsFromObj } from "./enumUtils";
 import { ConvertAttributeFromBuildToTable } from "./attrUtils";
 
-async function dereferenceSchema(schema: any) {
+export async function dereferenceSchema(schema: any) {
 	try {
 		const dereferencedSchema = await RefParser.dereference(schema);
 		return dereferencedSchema;

@@ -13,10 +13,10 @@ const run = async () => {
 	);
 	var compiler = new ConfigCompiler(SupportedLanguages.Typescript);
 	const build = readFileSync("./build.yaml", "utf8");
-
 	await compiler.initialize(build);
 	const paths = await compiler.generateValidPaths();
 	writeFileSync("./validPaths.json", JSON.stringify(paths, null, 2));
+	console.log("VALID PATHS GENERATED");
 	await CREATE_FIRST();
 
 	const t = yaml.load(build) as any;

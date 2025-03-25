@@ -42,13 +42,14 @@ export function generateTagsValidations(givenTags: Record<string, TagData>) {
 		const apiData: TagData = givenTags[api as keyOfTags];
 		let i = 0;
 		for (const tagsWithSameBase of apiData) {
+			console.log("tagsWithSameBase", tagsWithSameBase);
 			const basePath = tagsWithSameBase.path;
-			const appendPath = basePath + "[*].descriptor.code";
+			const appendPath = basePath + "[*].code";
 			const mostSimilarPath = findClosestJsonPath(
 				validPaths[api as keyof typeof validPaths],
 				appendPath
 			) as string;
-			console.log("paths", mostSimilarPath, appendPath);
+			console.log("most similar finding", mostSimilarPath, appendPath);
 			const allCodes = tagsWithSameBase.tag.map((tag) => tag.code);
 			const newConfig = {
 				_NAME_: `validate_tag_${i}`,
@@ -63,7 +64,7 @@ export function generateTagsValidations(givenTags: Record<string, TagData>) {
 				const newConfig = {
 					_NAME_: `validate_tag_${i}_${tag.code}`,
 					_SCOPE_: newPath,
-					subTags: "$.list[*].descriptor.code",
+					subTags: "$.list[*].code",
 					validValues: tag.list.map((l) => l.code),
 					_RETURN_: "subTags all in validValues",
 				};
