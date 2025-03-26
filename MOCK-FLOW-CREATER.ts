@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import { dereferenceSchema } from "./ajvGenerator";
 import yaml from "js-yaml";
 
@@ -19,21 +19,23 @@ async function createFlows() {
 		flows: [],
 	};
 	for (const flow of flows) {
-		console.log(sanitizeString(flow.summary));
+		// console.log(sanitizeString(flow.summary));
 		const sequence: Sequence[] = [];
 
-		let lastApi = "";
+		let lastApi = null;
 		for (const step of flow.steps) {
 			console.log(step.api);
 			const api: string = step.api;
-			const unsolicited = lastApi !== api.replace("on_", "");
+			const unsolicited =
+				lastApi !== api.replace("on_", "") && api.startsWith("on_");
+			console.log(lastApi, api, api.replace("on_", ""), unsolicited);
 			sequence.push({
 				key: step.api,
 				type: step.api,
-				unsolicited: false,
-				pair: unsolicited ? api : null,
+				unsolicited: unsolicited,
+				pair: unsolicited || !api.startsWith("on_") ? null : lastApi,
 				owner: api.startsWith("on_") ? "BPP" : "BAP",
-				expect: false,
+				expect: api === "search",
 			});
 			lastApi = api;
 		}
@@ -44,7 +46,8 @@ async function createFlows() {
 			sequence: sequence,
 		});
 	}
-	console.log(flowsConfig);
+	// console.log(flowsConfig);
+	writeFileSync("./flows.json", JSON.stringify(flowsConfig, null, 2));
 }
 
 (async () => {

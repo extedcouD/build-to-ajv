@@ -1,3 +1,7 @@
+function removeSpecialCharacters(str: string): string {
+	return str.replace(/[^a-zA-Z0-9 ]/g, "");
+}
+
 /**
  * Calculates the Levenshtein distance between two strings.
  * Levenshtein distance is a metric for measuring the difference between two sequences.
@@ -8,6 +12,9 @@
  */
 function levenshteinDistance(a: string, b: string): number {
 	const matrix: number[][] = [];
+
+	a = removeSpecialCharacters(a);
+	b = removeSpecialCharacters(b);
 
 	const aLen = a.length;
 	const bLen = b.length;

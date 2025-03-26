@@ -1,4 +1,4 @@
-import { readFileSync } from "fs";
+import { readFileSync, writeFileSync } from "fs";
 import yaml from "js-yaml";
 import { findClosestJsonPath } from "./JsonPathCorrector";
 export interface enumInfo {
@@ -21,7 +21,7 @@ export function enumsFromObj(obj: any) {
 
 	return data;
 }
-
+const pathFindings: any = [];
 const listDetailedPaths = (obj: Record<string, any>, api: string) => {
 	// const obj: Record<string, any> = yaml.load(yamlData);
 	let detailedPaths: enumObject[] = [];
@@ -29,11 +29,14 @@ const listDetailedPaths = (obj: Record<string, any>, api: string) => {
 	const ymlData = readFileSync("./validPaths.json", "utf8");
 	const validPaths = JSON.parse(ymlData) as any;
 	for (const detail of detailedPaths) {
+		const orignal = detail.path;
 		detail.path = findClosestJsonPath(
 			validPaths[api] as any,
 			detail.path
 		) as string;
+		pathFindings.push({ original: orignal, corrected: detail.path, api: api });
 	}
+	writeFileSync("./pathFindings.json", JSON.stringify(pathFindings, null, 2));
 	return detailedPaths;
 };
 

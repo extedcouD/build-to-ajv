@@ -1,0 +1,532 @@
+[
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.fulfillment.type",
+    "corrected": "$.message.intent.fulfillment.type",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.fulfillment.start.authorization.type",
+    "corrected": "$.message.intent.fulfillment.start.authorization.type",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.fulfillment.start.instructions.code",
+    "corrected": "$.message.intent.fulfillment.start.instructions.code",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.fulfillment.end.authorization.type",
+    "corrected": "$.message.intent.fulfillment.end.authorization.type",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.fulfillment.end.instructions.code",
+    "corrected": "$.message.intent.fulfillment.end.instructions.code",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.payment.type",
+    "corrected": "$.message.intent.payment.type",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.category.id",
+    "corrected": "$.message.intent.category.id",
+    "api": "search"
+  },
+  {
+    "original": "message.intent.item.descriptor.code",
+    "corrected": "$.message.intent.item.descriptor.code",
+    "api": "search"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_search"
+  },
+  {
+    "original": "message.catalog.bpp/providers.items.descriptor.code",
+    "corrected": "$.message.catalog.bpp/providers[*].items[*].descriptor.code",
+    "api": "on_search"
+  },
+  {
+    "original": "message.catalog.bpp/providers.items.category_id",
+    "corrected": "$.message.catalog.bpp/providers[*].items[*].category_id",
+    "api": "on_search"
+  },
+  {
+    "original": "message.catalog.bpp/providers.categories.id",
+    "corrected": "$.message.catalog.bpp/providers[*].categories[*].id",
+    "api": "on_search"
+  },
+  {
+    "original": "message.catalog.bpp/providers.fulfillments.type",
+    "corrected": "$.message.catalog.bpp/providers[*].fulfillments[*].type",
+    "api": "on_search"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "init"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "init"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "init"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "init"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "init"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_init"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "on_init"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "on_init"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "on_init"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "on_init"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "confirm"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "confirm"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.state",
+    "corrected": "$.message.order.state",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "on_confirm"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "on_confirm"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "status"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.state",
+    "corrected": "$.message.order.state",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "on_status"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "on_status"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "cancel"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.state",
+    "corrected": "$.message.order.state",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "on_cancel"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "on_cancel"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "update"
+  },
+  {
+    "original": "message.order.state",
+    "corrected": "$.message.order.state",
+    "api": "update"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "update"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "update"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "update"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "update"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "update"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "update"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.state",
+    "corrected": "$.message.order.state",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.items.descriptor.code",
+    "corrected": "$.message.order.items[*].descriptor.code",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.items.category_id",
+    "corrected": "$.message.order.items[*].category_id",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.type",
+    "corrected": "$.message.order.fulfillments[*].type",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.start.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].start.authorization.type",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.start.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].start.instructions.code",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.end.authorization.type",
+    "corrected": "$.message.order.fulfillments[*].end.authorization.type",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.end.instructions.code",
+    "corrected": "$.message.order.fulfillments[*].end.instructions.code",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.fulfillments.state.descriptor.code",
+    "corrected": "$.message.order.fulfillments[*].state.descriptor.code",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.payment.type",
+    "corrected": "$.message.order.payment.type",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
+    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "api": "on_update"
+  },
+  {
+    "original": "message.order.quote.breakup.@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "api": "on_update"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "track"
+  },
+  {
+    "original": "context.domain",
+    "corrected": "$.context.domain",
+    "api": "on_track"
+  },
+  {
+    "original": "message.tracking.status",
+    "corrected": "$.message.tracking.status",
+    "api": "on_track"
+  }
+]
