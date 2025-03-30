@@ -51,22 +51,22 @@
   },
   {
     "original": "message.catalog.bpp/providers.items.descriptor.code",
-    "corrected": "$.message.catalog.bpp/providers[*].items[*].descriptor.code",
+    "corrected": "$.message.catalog['bpp/providers'][*].items[*].descriptor.code",
     "api": "on_search"
   },
   {
     "original": "message.catalog.bpp/providers.items.category_id",
-    "corrected": "$.message.catalog.bpp/providers[*].items[*].category_id",
+    "corrected": "$.message.catalog['bpp/providers'][*].items[*].category_id",
     "api": "on_search"
   },
   {
     "original": "message.catalog.bpp/providers.categories.id",
-    "corrected": "$.message.catalog.bpp/providers[*].categories[*].id",
+    "corrected": "$.message.catalog['bpp/providers'][*].categories[*].id",
     "api": "on_search"
   },
   {
     "original": "message.catalog.bpp/providers.fulfillments.type",
-    "corrected": "$.message.catalog.bpp/providers[*].fulfillments[*].type",
+    "corrected": "$.message.catalog['bpp/providers'][*].fulfillments[*].type",
     "api": "on_search"
   },
   {
@@ -91,7 +91,7 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "init"
   },
   {
@@ -111,12 +111,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "on_init"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "on_init"
   },
   {
@@ -136,7 +136,7 @@
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "confirm"
   },
   {
@@ -176,7 +176,7 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "confirm"
   },
   {
@@ -236,12 +236,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "on_confirm"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "on_confirm"
   },
   {
@@ -306,12 +306,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "on_status"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "on_status"
   },
   {
@@ -376,12 +376,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "on_cancel"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "on_cancel"
   },
   {
@@ -441,12 +441,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "update"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "update"
   },
   {
@@ -506,12 +506,12 @@
   },
   {
     "original": "message.order.payment.@ondc/org/settlement_details.settlement_counterparty",
-    "corrected": "$.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty",
+    "corrected": "$.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty",
     "api": "on_update"
   },
   {
     "original": "message.order.quote.breakup.@ondc/org/title_type",
-    "corrected": "$.message.order.quote.breakup[*].@ondc/org/title_type",
+    "corrected": "$.message.order.quote.breakup[*]['@ondc/org/title_type']",
     "api": "on_update"
   },
   {

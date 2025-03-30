@@ -18,6 +18,7 @@ async function createFlows() {
 	const flowsConfig: any = {
 		flows: [],
 	};
+	const examples: any = {};
 	for (const flow of flows) {
 		// console.log(sanitizeString(flow.summary));
 		const sequence: Sequence[] = [];
@@ -29,11 +30,15 @@ async function createFlows() {
 			const unsolicited =
 				lastApi !== api.replace("on_", "") && api.startsWith("on_");
 			console.log(lastApi, api, api.replace("on_", ""), unsolicited);
+			if (examples[api] === undefined) {
+				examples[api] = [];
+			}
+			examples[api].push(step.example.value);
 			sequence.push({
 				key: step.api,
 				type: step.api,
 				unsolicited: unsolicited,
-				pair: unsolicited || !api.startsWith("on_") ? null : lastApi,
+				pair: !api.startsWith("on_") ? `on_${api}` : null,
 				owner: api.startsWith("on_") ? "BPP" : "BAP",
 				expect: api === "search",
 			});
@@ -48,6 +53,7 @@ async function createFlows() {
 	}
 	// console.log(flowsConfig);
 	writeFileSync("./flows.json", JSON.stringify(flowsConfig, null, 2));
+	writeFileSync("./examples.json", JSON.stringify(examples, null, 2));
 }
 
 (async () => {

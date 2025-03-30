@@ -24,18 +24,18 @@ search:
       - $.message.intent.fulfillment.end.location.gps
       - $.message.intent.fulfillment.end.location.address.area_code
       - $.message.intent.payment.type
-      - $.message.intent.@ondc/org/payload_details.weight.unit
-      - $.message.intent.@ondc/org/payload_details.weight.value
-      - $.message.intent.@ondc/org/payload_details.dimensions.length.unit
-      - $.message.intent.@ondc/org/payload_details.dimensions.length.value
-      - $.message.intent.@ondc/org/payload_details.dimensions.breadth.unit
-      - $.message.intent.@ondc/org/payload_details.dimensions.breadth.value
-      - $.message.intent.@ondc/org/payload_details.dimensions.height.unit
-      - $.message.intent.@ondc/org/payload_details.dimensions.height.value
-      - $.message.intent.@ondc/org/payload_details.category
-      - $.message.intent.@ondc/org/payload_details.value.currency
-      - $.message.intent.@ondc/org/payload_details.value.value
-      - $.message.intent.@ondc/org/payload_details.dangerous_goods
+      - $.message.intent['@ondc/org/payload_details'].weight.unit
+      - $.message.intent['@ondc/org/payload_details'].weight.value
+      - $.message.intent['@ondc/org/payload_details'].dimensions.length.unit
+      - $.message.intent['@ondc/org/payload_details'].dimensions.length.value
+      - $.message.intent['@ondc/org/payload_details'].dimensions.breadth.unit
+      - $.message.intent['@ondc/org/payload_details'].dimensions.breadth.value
+      - $.message.intent['@ondc/org/payload_details'].dimensions.height.unit
+      - $.message.intent['@ondc/org/payload_details'].dimensions.height.value
+      - $.message.intent['@ondc/org/payload_details'].category
+      - $.message.intent['@ondc/org/payload_details'].value.currency
+      - $.message.intent['@ondc/org/payload_details'].value.value
+      - $.message.intent['@ondc/org/payload_details'].dangerous_goods
   l1_enums:
     - path: $.context.domain
       enums:
@@ -198,7 +198,7 @@ init:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
@@ -228,8 +228,8 @@ confirm:
       - $.message.order.items[*].time.timestamp
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.fulfillments[*].id
@@ -278,28 +278,29 @@ confirm:
       - $.message.order.billing.updated_at
       - $.message.order.payment.collected_by
       - $.message.order.payment.type
-      - $.message.order.@ondc/org/linked_order.items[*].descriptor.name
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.count
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.unit
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.value
-      - $.message.order.@ondc/org/linked_order.items[*].price.currency
-      - $.message.order.@ondc/org/linked_order.items[*].price.value
-      - $.message.order.@ondc/org/linked_order.provider.descriptor.name
-      - $.message.order.@ondc/org/linked_order.provider.address.name
-      - $.message.order.@ondc/org/linked_order.provider.address.building
-      - $.message.order.@ondc/org/linked_order.provider.address.locality
-      - $.message.order.@ondc/org/linked_order.provider.address.city
-      - $.message.order.@ondc/org/linked_order.provider.address.state
-      - $.message.order.@ondc/org/linked_order.provider.address.area_code
-      - $.message.order.@ondc/org/linked_order.order.id
-      - $.message.order.@ondc/org/linked_order.order.weight.unit
-      - $.message.order.@ondc/org/linked_order.order.weight.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.value
+      - $.message.order['@ondc/org/linked_order'].items[*].descriptor.name
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.count
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.unit
+      - >-
+        $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.value
+      - $.message.order['@ondc/org/linked_order'].items[*].price.currency
+      - $.message.order['@ondc/org/linked_order'].items[*].price.value
+      - $.message.order['@ondc/org/linked_order'].provider.descriptor.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.building
+      - $.message.order['@ondc/org/linked_order'].provider.address.locality
+      - $.message.order['@ondc/org/linked_order'].provider.address.city
+      - $.message.order['@ondc/org/linked_order'].provider.address.state
+      - $.message.order['@ondc/org/linked_order'].provider.address.area_code
+      - $.message.order['@ondc/org/linked_order'].order.id
+      - $.message.order['@ondc/org/linked_order'].order.weight.unit
+      - $.message.order['@ondc/org/linked_order'].order.weight.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.value
       - $.message.order.created_at
       - $.message.order.updated_at
   l1_enums:
@@ -318,7 +319,7 @@ confirm:
         - code: Next Day Delivery
         - code: Same Day Delivery
         - code: Instant Delivery
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -378,7 +379,7 @@ confirm:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
@@ -543,11 +544,11 @@ update:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -571,36 +572,36 @@ on_search:
       - $.context.transaction_id
       - $.context.message_id
       - $.context.timestamp
-      - $.message.catalog.bpp/descriptor.name
-      - $.message.catalog.bpp/providers[*].id
-      - $.message.catalog.bpp/providers[*].descriptor.name
-      - $.message.catalog.bpp/providers[*].descriptor.short_desc
-      - $.message.catalog.bpp/providers[*].descriptor.long_desc
-      - $.message.catalog.bpp/providers[*].categories[*].id
-      - $.message.catalog.bpp/providers[*].categories[*].time.label
-      - $.message.catalog.bpp/providers[*].categories[*].time.duration
-      - $.message.catalog.bpp/providers[*].categories[*].time.timestamp
-      - $.message.catalog.bpp/providers[*].fulfillments[*].id
-      - $.message.catalog.bpp/providers[*].fulfillments[*].type
-      - $.message.catalog.bpp/providers[*].items[*].id
-      - $.message.catalog.bpp/providers[*].items[*].parent_item_id
-      - $.message.catalog.bpp/providers[*].items[*].category_id
-      - $.message.catalog.bpp/providers[*].items[*].fulfillment_id
-      - $.message.catalog.bpp/providers[*].items[*].descriptor.code
-      - $.message.catalog.bpp/providers[*].items[*].descriptor.name
-      - $.message.catalog.bpp/providers[*].items[*].descriptor.short_desc
-      - $.message.catalog.bpp/providers[*].items[*].descriptor.long_desc
-      - $.message.catalog.bpp/providers[*].items[*].price.currency
-      - $.message.catalog.bpp/providers[*].items[*].price.value
+      - $.message.catalog['bpp/descriptor'].name
+      - $.message.catalog['bpp/providers'][*].id
+      - $.message.catalog['bpp/providers'][*].descriptor.name
+      - $.message.catalog['bpp/providers'][*].descriptor.short_desc
+      - $.message.catalog['bpp/providers'][*].descriptor.long_desc
+      - $.message.catalog['bpp/providers'][*].categories[*].id
+      - $.message.catalog['bpp/providers'][*].categories[*].time.label
+      - $.message.catalog['bpp/providers'][*].categories[*].time.duration
+      - $.message.catalog['bpp/providers'][*].categories[*].time.timestamp
+      - $.message.catalog['bpp/providers'][*].fulfillments[*].id
+      - $.message.catalog['bpp/providers'][*].fulfillments[*].type
+      - $.message.catalog['bpp/providers'][*].items[*].id
+      - $.message.catalog['bpp/providers'][*].items[*].parent_item_id
+      - $.message.catalog['bpp/providers'][*].items[*].category_id
+      - $.message.catalog['bpp/providers'][*].items[*].fulfillment_id
+      - $.message.catalog['bpp/providers'][*].items[*].descriptor.code
+      - $.message.catalog['bpp/providers'][*].items[*].descriptor.name
+      - $.message.catalog['bpp/providers'][*].items[*].descriptor.short_desc
+      - $.message.catalog['bpp/providers'][*].items[*].descriptor.long_desc
+      - $.message.catalog['bpp/providers'][*].items[*].price.currency
+      - $.message.catalog['bpp/providers'][*].items[*].price.value
   l1_enums:
     - path: $.context.domain
       enums:
         - code: nic2004:60232
-    - path: $.message.catalog.bpp/providers[*].items[*].descriptor.code
+    - path: $.message.catalog['bpp/providers'][*].items[*].descriptor.code
       enums:
         - code: P2P
         - code: P2H2P
-    - path: $.message.catalog.bpp/providers[*].items[*].category_id
+    - path: $.message.catalog['bpp/providers'][*].items[*].category_id
       enums:
         - code: Express Delivery
         - code: Standard Delivery
@@ -608,7 +609,7 @@ on_search:
         - code: Next Day Delivery
         - code: Same Day Delivery
         - code: Instant Delivery
-    - path: $.message.catalog.bpp/providers[*].categories[*].id
+    - path: $.message.catalog['bpp/providers'][*].categories[*].id
       enums:
         - code: Express Delivery
         - code: Standard Delivery
@@ -616,7 +617,7 @@ on_search:
         - code: Next Day Delivery
         - code: Same Day Delivery
         - code: Instant Delivery
-    - path: $.message.catalog.bpp/providers[*].fulfillments[*].type
+    - path: $.message.catalog['bpp/providers'][*].fulfillments[*].type
       enums:
         - code: Delivery
         - code: Return
@@ -699,8 +700,8 @@ on_init:
       - $.message.order.fulfillments[*].end.contact.phone
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.quote.ttl
@@ -721,11 +722,11 @@ on_init:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -761,8 +762,8 @@ on_confirm:
       - $.message.order.items[*].time.timestamp
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.fulfillments[*].id
@@ -807,29 +808,30 @@ on_confirm:
       - $.message.order.billing.updated_at
       - $.message.order.payment.collected_by
       - $.message.order.payment.type
-      - $.message.order.@ondc/org/linked_order.items[*].category_id
-      - $.message.order.@ondc/org/linked_order.items[*].descriptor.name
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.count
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.unit
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.value
-      - $.message.order.@ondc/org/linked_order.items[*].price.currency
-      - $.message.order.@ondc/org/linked_order.items[*].price.value
-      - $.message.order.@ondc/org/linked_order.provider.descriptor.name
-      - $.message.order.@ondc/org/linked_order.provider.address.name
-      - $.message.order.@ondc/org/linked_order.provider.address.building
-      - $.message.order.@ondc/org/linked_order.provider.address.locality
-      - $.message.order.@ondc/org/linked_order.provider.address.city
-      - $.message.order.@ondc/org/linked_order.provider.address.state
-      - $.message.order.@ondc/org/linked_order.provider.address.area_code
-      - $.message.order.@ondc/org/linked_order.order.id
-      - $.message.order.@ondc/org/linked_order.order.weight.unit
-      - $.message.order.@ondc/org/linked_order.order.weight.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.value
+      - $.message.order['@ondc/org/linked_order'].items[*].category_id
+      - $.message.order['@ondc/org/linked_order'].items[*].descriptor.name
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.count
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.unit
+      - >-
+        $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.value
+      - $.message.order['@ondc/org/linked_order'].items[*].price.currency
+      - $.message.order['@ondc/org/linked_order'].items[*].price.value
+      - $.message.order['@ondc/org/linked_order'].provider.descriptor.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.building
+      - $.message.order['@ondc/org/linked_order'].provider.address.locality
+      - $.message.order['@ondc/org/linked_order'].provider.address.city
+      - $.message.order['@ondc/org/linked_order'].provider.address.state
+      - $.message.order['@ondc/org/linked_order'].provider.address.area_code
+      - $.message.order['@ondc/org/linked_order'].order.id
+      - $.message.order['@ondc/org/linked_order'].order.weight.unit
+      - $.message.order['@ondc/org/linked_order'].order.weight.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.value
       - $.message.order.created_at
       - $.message.order.updated_at
   l1_enums:
@@ -906,11 +908,11 @@ on_confirm:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -975,8 +977,8 @@ on_cancel:
       - $.message.order.items[*].time.timestamp
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.fulfillments[*].id
@@ -998,29 +1000,30 @@ on_cancel:
       - $.message.order.billing.email
       - $.message.order.billing.created_at
       - $.message.order.billing.updated_at
-      - $.message.order.@ondc/org/linked_order.items[*].category_id
-      - $.message.order.@ondc/org/linked_order.items[*].descriptor.name
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.count
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.unit
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.value
-      - $.message.order.@ondc/org/linked_order.items[*].price.currency
-      - $.message.order.@ondc/org/linked_order.items[*].price.value
-      - $.message.order.@ondc/org/linked_order.provider.descriptor.name
-      - $.message.order.@ondc/org/linked_order.provider.address.name
-      - $.message.order.@ondc/org/linked_order.provider.address.building
-      - $.message.order.@ondc/org/linked_order.provider.address.locality
-      - $.message.order.@ondc/org/linked_order.provider.address.city
-      - $.message.order.@ondc/org/linked_order.provider.address.state
-      - $.message.order.@ondc/org/linked_order.provider.address.area_code
-      - $.message.order.@ondc/org/linked_order.order.id
-      - $.message.order.@ondc/org/linked_order.order.weight.unit
-      - $.message.order.@ondc/org/linked_order.order.weight.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.value
+      - $.message.order['@ondc/org/linked_order'].items[*].category_id
+      - $.message.order['@ondc/org/linked_order'].items[*].descriptor.name
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.count
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.unit
+      - >-
+        $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.value
+      - $.message.order['@ondc/org/linked_order'].items[*].price.currency
+      - $.message.order['@ondc/org/linked_order'].items[*].price.value
+      - $.message.order['@ondc/org/linked_order'].provider.descriptor.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.building
+      - $.message.order['@ondc/org/linked_order'].provider.address.locality
+      - $.message.order['@ondc/org/linked_order'].provider.address.city
+      - $.message.order['@ondc/org/linked_order'].provider.address.state
+      - $.message.order['@ondc/org/linked_order'].provider.address.area_code
+      - $.message.order['@ondc/org/linked_order'].order.id
+      - $.message.order['@ondc/org/linked_order'].order.weight.unit
+      - $.message.order['@ondc/org/linked_order'].order.weight.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.value
       - $.message.order.updated_at
   l1_enums:
     - path: $.context.domain
@@ -1096,11 +1099,11 @@ on_cancel:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -1136,8 +1139,8 @@ on_update:
       - $.message.order.items[*].time.timestamp
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.fulfillments[*].id
@@ -1187,30 +1190,31 @@ on_update:
       - $.message.order.billing.updated_at
       - $.message.order.payment.collected_by
       - $.message.order.payment.type
-      - $.message.order.@ondc/org/linked_order.items[*].category_id
-      - $.message.order.@ondc/org/linked_order.items[*].descriptor.name
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.count
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.unit
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.value
-      - $.message.order.@ondc/org/linked_order.items[*].price.currency
-      - $.message.order.@ondc/org/linked_order.items[*].price.value
-      - $.message.order.@ondc/org/linked_order.provider.descriptor.name
-      - $.message.order.@ondc/org/linked_order.provider.address.name
-      - $.message.order.@ondc/org/linked_order.provider.address.building
-      - $.message.order.@ondc/org/linked_order.provider.address.street
-      - $.message.order.@ondc/org/linked_order.provider.address.locality
-      - $.message.order.@ondc/org/linked_order.provider.address.city
-      - $.message.order.@ondc/org/linked_order.provider.address.state
-      - $.message.order.@ondc/org/linked_order.provider.address.area_code
-      - $.message.order.@ondc/org/linked_order.order.id
-      - $.message.order.@ondc/org/linked_order.order.weight.unit
-      - $.message.order.@ondc/org/linked_order.order.weight.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.value
+      - $.message.order['@ondc/org/linked_order'].items[*].category_id
+      - $.message.order['@ondc/org/linked_order'].items[*].descriptor.name
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.count
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.unit
+      - >-
+        $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.value
+      - $.message.order['@ondc/org/linked_order'].items[*].price.currency
+      - $.message.order['@ondc/org/linked_order'].items[*].price.value
+      - $.message.order['@ondc/org/linked_order'].provider.descriptor.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.building
+      - $.message.order['@ondc/org/linked_order'].provider.address.street
+      - $.message.order['@ondc/org/linked_order'].provider.address.locality
+      - $.message.order['@ondc/org/linked_order'].provider.address.city
+      - $.message.order['@ondc/org/linked_order'].provider.address.state
+      - $.message.order['@ondc/org/linked_order'].provider.address.area_code
+      - $.message.order['@ondc/org/linked_order'].order.id
+      - $.message.order['@ondc/org/linked_order'].order.weight.unit
+      - $.message.order['@ondc/org/linked_order'].order.weight.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.value
       - $.message.order.updated_at
   l1_enums:
     - path: $.context.domain
@@ -1286,11 +1290,11 @@ on_update:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
@@ -1325,8 +1329,8 @@ on_status:
       - $.message.order.items[*].time.timestamp
       - $.message.order.quote.price.currency
       - $.message.order.quote.price.value
-      - $.message.order.quote.breakup[*].@ondc/org/item_id
-      - $.message.order.quote.breakup[*].@ondc/org/title_type
+      - $.message.order.quote.breakup[*]['@ondc/org/item_id']
+      - $.message.order.quote.breakup[*]['@ondc/org/title_type']
       - $.message.order.quote.breakup[*].price.currency
       - $.message.order.quote.breakup[*].price.value
       - $.message.order.fulfillments[*].id
@@ -1348,29 +1352,30 @@ on_status:
       - $.message.order.billing.email
       - $.message.order.billing.created_at
       - $.message.order.billing.updated_at
-      - $.message.order.@ondc/org/linked_order.items[*].category_id
-      - $.message.order.@ondc/org/linked_order.items[*].descriptor.name
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.count
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.unit
-      - $.message.order.@ondc/org/linked_order.items[*].quantity.measure.value
-      - $.message.order.@ondc/org/linked_order.items[*].price.currency
-      - $.message.order.@ondc/org/linked_order.items[*].price.value
-      - $.message.order.@ondc/org/linked_order.provider.descriptor.name
-      - $.message.order.@ondc/org/linked_order.provider.address.name
-      - $.message.order.@ondc/org/linked_order.provider.address.building
-      - $.message.order.@ondc/org/linked_order.provider.address.locality
-      - $.message.order.@ondc/org/linked_order.provider.address.city
-      - $.message.order.@ondc/org/linked_order.provider.address.state
-      - $.message.order.@ondc/org/linked_order.provider.address.area_code
-      - $.message.order.@ondc/org/linked_order.order.id
-      - $.message.order.@ondc/org/linked_order.order.weight.unit
-      - $.message.order.@ondc/org/linked_order.order.weight.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.length.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.breadth.value
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.unit
-      - $.message.order.@ondc/org/linked_order.order.dimensions.height.value
+      - $.message.order['@ondc/org/linked_order'].items[*].category_id
+      - $.message.order['@ondc/org/linked_order'].items[*].descriptor.name
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.count
+      - $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.unit
+      - >-
+        $.message.order['@ondc/org/linked_order'].items[*].quantity.measure.value
+      - $.message.order['@ondc/org/linked_order'].items[*].price.currency
+      - $.message.order['@ondc/org/linked_order'].items[*].price.value
+      - $.message.order['@ondc/org/linked_order'].provider.descriptor.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.name
+      - $.message.order['@ondc/org/linked_order'].provider.address.building
+      - $.message.order['@ondc/org/linked_order'].provider.address.locality
+      - $.message.order['@ondc/org/linked_order'].provider.address.city
+      - $.message.order['@ondc/org/linked_order'].provider.address.state
+      - $.message.order['@ondc/org/linked_order'].provider.address.area_code
+      - $.message.order['@ondc/org/linked_order'].order.id
+      - $.message.order['@ondc/org/linked_order'].order.weight.unit
+      - $.message.order['@ondc/org/linked_order'].order.weight.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.length.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.breadth.value
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.unit
+      - $.message.order['@ondc/org/linked_order'].order.dimensions.height.value
       - $.message.order.updated_at
   l1_enums:
     - path: $.context.domain
@@ -1446,11 +1451,11 @@ on_status:
         - code: ON-FULFILLMENT
         - code: POST-FULFILLMENT
     - path: >-
-        $.message.order.payment.@ondc/org/settlement_details[*].settlement_counterparty
+        $.message.order.payment['@ondc/org/settlement_details'][*].settlement_counterparty
       enums:
         - code: lbnp
         - code: lsp
-    - path: $.message.order.quote.breakup[*].@ondc/org/title_type
+    - path: $.message.order.quote.breakup[*]['@ondc/org/title_type']
       enums:
         - code: delivery
         - code: rto
