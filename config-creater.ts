@@ -54,7 +54,7 @@ export async function CREATE_BASE_VALIDATIONS(
 					const enumData = enums.find((p) => p.path === a);
 					const enumList = enumData?.enums.map((e) => e.code);
 					ob.enumList = enumList;
-					ob._RETURN_ = "attr are present && attr all in enumList";
+					ob._RETURN_ = "attr all in enumList";
 					// enums = enums.filter((p) => p.path !== a);
 				}
 

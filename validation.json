@@ -1,7 +1,6 @@
-import { writeFileSync } from "node:fs";
-
-let without_errors = {
-	"_TESTS_": {
+{
+  "x-validations": {
+    "_TESTS_": {
       "search": [
         {
           "_NAME_": "REQUIRED_CONTEXT_CODE_1",
@@ -5780,58 +5779,5 @@ let without_errors = {
     "_SESSION_DATA_": {
       "trans": {}
     }
-};
-for (const api in without_errors._TESTS_) {
-	if (api.startsWith("on_")) {
-		const apiKey = api as keyof typeof without_errors._TESTS_;
-		const tests = without_errors._TESTS_[apiKey];
-		const allMessageTests = tests.filter((test) => {
-			for (const testKey in test) {
-				if (test[testKey as keyof typeof test]?.includes("context")) {
-					return false;
-				}
-			}
-			return true;
-		});
-		// @ts-ignore
-		without_errors._TESTS_[apiKey] = tests.filter((test: any) => {
-			for (const testKey in test) {
-				if (test[testKey as keyof typeof test]?.includes("context")) {
-					// console.log(test[testKey as keyof typeof test]);
-					return true;
-				}
-			}
-			return false;
-		});
-
-		const messageTests = {
-			_NAME_: `${apiKey}_Message_TESTS`,
-			errorBlock: "$.error.code",
-			_CONTINUE_: "errorBlock are present",
-			_RETURN_: allMessageTests,
-		};
-		// @ts-ignore
-		without_errors._TESTS_[apiKey].push(messageTests);
-	}
+  }
 }
-
-writeFileSync("error_adder.json", JSON.stringify(without_errors, null, 2));
-
-// for (const test of without_errors._TESTS_[apiKey]) {
-// 	if (test.attr && test.attr.includes("context")) {
-// 		continue;
-// 	}
-// 	if (test.enumPath && test.enumPath.includes("context")) {
-// 		continue;
-// 	}
-// 	// @ts-ignore
-// 	test.errorBlock = "$.error.code";
-// 	// @ts-ignore
-// 	if (test._CONTINUE_) {
-// 		// @ts-ignore
-// 		test._CONTINUE_ = `(errorBlock are present) || (${test._CONTINUE_})`;
-// 	} else {
-// 		// @ts-ignore
-// 		test._CONTINUE_ = "errorBlock are present";
-// 	}
-// }
